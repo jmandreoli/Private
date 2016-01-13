@@ -1,0 +1,611 @@
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     PACKAGES    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{times}
+\usepackage{graphicx}
+\graphicspath{{picF/}}
+\usepackage{amsmath,amssymb,amsbsy,amsfonts,amsthm}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   PAGE FORMAT   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[text={17.5cm,25cm},centering]{geometry}
+\setlength{\parindent}{0cm}
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\floatpagefraction}{0.99}
+\renewcommand{\topfraction}{0.99}
+\renewcommand{\bottomfraction}{0.99}
+\renewcommand{\dblfloatpagefraction}{0.99}
+\renewcommand{\dbltopfraction}{0.99}
+\renewcommand{\baselinestretch}{1}
+\setcounter{totalnumber}{99}
+\setcounter{topnumber}{99}
+\setcounter{bottomnumber}{99}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      MACROS     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hascoord}[2]{\left(\begin{array}{c}{#1}\\{#2}\end{array}\right)}
+
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+
+%\tikzset{BNVar/.style={circle,draw}}
+%\tikzset{BNVarDiscrete/.style={rectangle,draw}}
+%\tikzset{BNObserved/.style={fill=black!15}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    COVERSHEET   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% template:
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Un problème de logique}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% \subsection{Enoncé}
+% 
+% \subsection{Solution}
+%
+% \pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème de logique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+Les 16 segments suivants (délimités par les points rouges), forment cinq carrés. Former quatre carrés de même taille en déplaçant seulement deux segments.
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\node [fill=red,inner sep=2pt] (P20) at (2,0) {};
+\node [fill=red,inner sep=2pt] (P30) at (3,0) {};
+\node [fill=red,inner sep=2pt] (P40) at (4,0) {};
+\node [fill=red,inner sep=2pt] (P01) at (0,1) {};
+\node [fill=red,inner sep=2pt] (P11) at (1,1) {};
+\node [fill=red,inner sep=2pt] (P21) at (2,1) {};
+\node [fill=red,inner sep=2pt] (P31) at (3,1) {};
+\node [fill=red,inner sep=2pt] (P41) at (4,1) {};
+\node [fill=red,inner sep=2pt] (P02) at (0,2) {};
+\node [fill=red,inner sep=2pt] (P12) at (1,2) {};
+\node [fill=red,inner sep=2pt] (P22) at (2,2) {};
+\node [fill=red,inner sep=2pt] (P32) at (3,2) {};
+\draw [gray] (P20) -- (P40);
+\draw [gray] (P01) -- (P41);
+\draw [gray] (P02) -- (P32);
+\draw [gray] (P01) -- (P02);
+\draw [gray] (P11) -- (P12);
+\draw [gray] (P20) -- (P22);
+\draw [gray] (P30) -- (P32);
+\draw [gray] (P40) -- (P41);
+\end{tikzpicture}
+\end{center}
+\subsection{Solution}
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\node [fill=green,inner sep=2pt] (P10) at (1,0) {};
+\node [fill=red,inner sep=2pt] (P20) at (2,0) {};
+\node [fill=red,inner sep=2pt] (P30) at (3,0) {};
+\node [fill=red,inner sep=2pt] (P40) at (4,0) {};
+\node [fill=red,inner sep=2pt] (P01) at (0,1) {};
+\node [fill=red,inner sep=2pt] (P11) at (1,1) {};
+\node [fill=red,inner sep=2pt] (P21) at (2,1) {};
+\node [fill=red,inner sep=2pt] (P31) at (3,1) {};
+\node [fill=red,inner sep=2pt] (P41) at (4,1) {};
+\node [fill=red,inner sep=2pt] (P02) at (0,2) {};
+\node [fill=red,inner sep=2pt] (P12) at (1,2) {};
+\node [fill=red,inner sep=2pt] (P22) at (2,2) {};
+\node [fill=red,inner sep=2pt] (P32) at (3,2) {};
+\draw [green] (P10) -- (P20);
+\draw [green,dash pattern=on 3pt off 3pt] (P20) -- (P30);
+\draw [gray] (P30) -- (P40);
+\draw [gray] (P01) -- (P41);
+\draw [gray] (P02) -- (P12);
+\draw [green,dash pattern=on 3pt off 3pt] (P12) -- (P22);
+\draw [gray] (P22) -- (P32);
+\draw [gray] (P01) -- (P02);
+\draw [green] (P10) -- (P11);
+\draw [gray] (P11) -- (P12);
+\draw [gray] (P20) -- (P22);
+\draw [gray] (P30) -- (P32);
+\draw [gray] (P40) -- (P41);
+\end{tikzpicture}
+\end{center}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème de logique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+Tracer cinq segments de droites qui forment une courbe fermée (cinq sommets) et qui passent par les points suivants (en rouge) sans se couper en aucun d'entre eux:
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\node [fill=red,inner sep=2pt] (P00) at (0,0) {};
+\node [fill=red,inner sep=2pt] (P10) at (1,0) {};
+\node [fill=red,inner sep=2pt] (P20) at (2,0) {};
+\node [fill=red,inner sep=2pt] (P01) at (0,1) {};
+\node [fill=red,inner sep=2pt] (P11) at (1,1) {};
+\node [fill=red,inner sep=2pt] (P21) at (2,1) {};
+\node [fill=red,inner sep=2pt] (P02) at (0,2) {};
+\node [fill=red,inner sep=2pt] (P12) at (1,2) {};
+\node [fill=red,inner sep=2pt] (P22) at (2,2) {};
+\draw [gray] (P00) -- (P20);
+\draw [gray] (P01) -- (P21);
+\draw [gray] (P02) -- (P22);
+\draw [gray] (P00) -- (P02);
+\draw [gray] (P10) -- (P12);
+\draw [gray] (P20) -- (P22);
+\end{tikzpicture}
+\end{center}
+\subsection{Solution}
+\begin{center}
+\begin{tikzpicture}[scale=2]
+\node [fill=red,inner sep=2pt] (P00) at (0,0) {};
+\node [fill=red,inner sep=2pt] (P10) at (1,0) {};
+\node [fill=red,inner sep=2pt] (P20) at (2,0) {};
+\node [fill=red,inner sep=2pt] (P01) at (0,1) {};
+\node [fill=red,inner sep=2pt] (P11) at (1,1) {};
+\node [fill=red,inner sep=2pt] (P21) at (2,1) {};
+\node [fill=red,inner sep=2pt] (P02) at (0,2) {};
+\node [fill=red,inner sep=2pt] (P12) at (1,2) {};
+\node [fill=red,inner sep=2pt] (P22) at (2,2) {};
+\node [fill=green,inner sep=2pt] (A) at (-1.5,0) {};
+\node [fill=green,inner sep=2pt] (B) at (-.5,3.5) {};
+\node [fill=green,inner sep=2pt] (C) at (.5,.5) {};
+\node [fill=green,inner sep=2pt] (D) at (3,3) {};
+\node [fill=green,inner sep=2pt] (E) at (3,0) {};
+\draw [gray] (P00) -- (P20);
+\draw [gray] (P01) -- (P21);
+\draw [gray] (P02) -- (P22);
+\draw [gray] (P00) -- (P02);
+\draw [gray] (P10) -- (P12);
+\draw [gray] (P20) -- (P22);
+\draw [green] (A) -- (D) -- (C) -- (B) -- (E) -- (A);
+\end{tikzpicture}
+\end{center}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème de logique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+Je propose à Kharpov et Kasparov le marché suivant:
+\begin{quote}
+Je joue une partie contre chacun d'entre vous. Si je perds les deux parties, je vous donne \$1M chacun. Sinon (c'est-à-dire si je gagne ou fait match nul à au moins une partie) vous me donnez \$2M. Les conditions sont celles d'un championat mais je me réserve le droit de choisir le lieu et l'heure des parties et aussi, de choisir ma couleur (blanc ou noir).
+\end{quote}
+Bien qu'en apparence, le marché leur soit favorable, ils refusent, car ils s'aperçoivent qu'ils sont
+nécessairement perdant. Pourquoi?
+\subsection{Solution}
+En effet, il me suffit de jouer les deux parties au même moment et au même endroit (parties simultanées). Je prends les blancs contre Kharpov et les noirs contre Kasparov, puis, je me contente de reproduire les coups de Kasparov contre Kharpov et réciproquement. En fait, tout se passe comme si les deux champions jouaient l'un contre l'autre: je ne suis qu'un intermédiaire. Comme ils ne peuvent pas tous les deux perdre leur partie, je gagne selon les termes du marché.
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème de logique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+On propose à trois prisonniers le marché suivant:
+\begin{quote}
+Dans ce sac, il y a trois disques blancs et deux disques noirs. Chacun d'entre vous va choisir un disque. Il pourra voir celui de ses deux compatriotes mais pas le sien propre. Ensuite, vous serez interrogés successivement sur la couleur de votre disque. L'interrogatoire se déroulera en présence de vous trois. Si l'un d'entre vous répond juste, vous êtes tous libres, sinon, c'est le cachot.
+\end{quote}
+Si tous les prisonniers font preuve de logique, ils s'en sortent nécessairement. Pourquoi?
+\subsection{Solution}
+Soit 1,2 et 3 les prisonniers, dans l'ordre où ils parlent. Supposons que 1 et 2 se soient trompés.
+\begin{itemize}
+\item
+Si 1 et 2 ont tous les deux dit blanc, ils portent donc tous les deux des disques noirs et 3 peut par conséquent dire blanc à coup sûr.
+\item
+Si 1 a dit blanc (et porte donc un disque noir) et 2 a dit noir (et porte donc un disque blanc), 3 se dit que s'il portait un disque noir, 2 aurait vu deux disques noirs et ne se serait pas trompé. 3 peut donc répondre blanc à coup sûr.
+\item
+Si 1 a dit noir et 2 a dit blanc, même raisonnement que dans le cas précédent.
+\item
+Si 1 et 2 ont tous les deux dit noir, ils portent donc tous les deux des disques blancs. 3 se dit que s'il portait un disque noir, 2 se serait dit que s'il avait porté un disque noir, 1 aurait vu deux disques noirs et ne se serait pas trompé. 3 est donc sûr que s'il portait un disque noir, 2 ne se serait pas trompé. 3 peut donc répondre blanc à coup sûr.
+\end{itemize}
+Ainsi, si 1 et 2 se trompent, 3 répond à coup sûr. Donc, les trois ne peuvent se tromper en même temps.
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème d'arithmétique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+Une personne choisit deux nombres entiers $x$ et $y$ compris entre $2$ et $99$ et dit à une personne {\bf P} la valeur de $xy$ et à une personne {\bf S} la valeur de $x+y$. Il s'ensuit la conversation suivante entre {\bf P} et {\bf S}:
+\begin{itemize}
+\item {\bf P}: Je ne connais pas les nombres $x$ et $y$.
+\item {\bf S}: Je savais déjà que vous ne les connaissiez pas.
+\item {\bf P}: Maintenant je connais les nombres $x$ et $y$.
+\item {\bf S}: Maintenant je les connais aussi.
+\end{itemize}
+Quelles sont les valeurs des deux nombres $x$,$y$ ?
+\subsection{Solution}
+On suppose sans perte de généralité que $x\leq y$. Le domaine du problème est
+\begin{eqnarray*}
+E & = & \{(x,y)\in\mathbb{N}^2|2\leq x\leq y\leq 99\}
+\end{eqnarray*}
+L'ensemble des solutions après la première réponse est donné par
+\begin{eqnarray*}
+E_1 & = & \{(x,y)\in E|\neg \exists! (u,v)\in E\;uv=xy\}
+\end{eqnarray*}
+L'ensemble des solutions après la deuxième réponse est donné par
+\begin{eqnarray*}
+E_2 & = & \{(x,y)\in E_1|\forall(u,v)\in E\;[u+v=x+y\Rightarrow(u,v)\in E_1]\}
+\end{eqnarray*}
+L'ensemble des solutions après la troisième réponse est donné par
+\begin{eqnarray*}
+E_3 & = & \{(x,y)\in E_2|\exists! (u,v)\in E_2\;uv=xy\}
+\end{eqnarray*}
+L'ensemble des solutions après la quatrième réponse est donné par
+\begin{eqnarray*}
+E_4 & = & \{(x,y)\in E_3|\exists! (u,v)\in E_3\;u+v=x+y\}
+\end{eqnarray*}
+Résultats (obtenus par informatique):
+\[
+|E| = 4851
+\hspace{1cm}
+|E_1| = 3076
+\hspace{1cm}
+|E_2| = 145
+\hspace{1cm}
+|E_3| = 86
+\hspace{1cm}
+|E_4| = 1
+\hspace{1cm}
+E_4 = \{(4,13)\}
+\]
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème de logique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+Etant données 12 pieces de monnaie, ayant toutes le même poids sauf une, déterminer celle-ci en trois pesées, avec une balance à équilibre (sans usage de poids de référence).
+\subsection{Solution}
+\begin{tabbing}
+\hspace{1cm}\=\kill
+\>\hspace{1cm}\=\kill
+Soit P l'ensemble des pièces;\\
+Diviser P en trois groupes A, B et C contenant 4 pièces chacun;\\
+{\bf Comparer}[1] A et B;\\
+Si A est plus lourd que B Alors\\
+\> Diviser A en 2 groupes D et E contenant 2 pièces chacun;\\
+\> Diviser B en 2 groupes F et G contenant respectivement 1 et 3 pieces;\\
+\> Diviser C en 2 groupes H et I contenant respectivement 1 et 3 pieces;\\
+\> {\bf Comparer}[2] D+H et E+F;\\
+\> Si D+H est plus lourd que E+F Alors\\
+\>\> Diviser D en 2 groupes J et K contenant 1 pièce chacun;\\
+\>\> {\bf Comparer}[3] J et K;\\
+\>\> Si J est plus lourd que K Alors \underline{la pièce J est plus lourde que les autres};\\
+\>\> Si J est moins lourd que K Alors \underline{la pièce K est plus lourde que les autres};\\
+\>\> Si J et K sont équilibrés Alors \underline{la pièce F est moins lourde que les autres};\\
+\> Si D+H est moins lourd que E+F Alors\\
+\>\> Diviser E en 2 groupes J et K contenant 1 pièce chacun;\\
+\>\> {\bf Comparer}[3] J et K;\\
+\>\> Si J est plus lourd que K Alors \underline{la pièce J est plus lourde que les autres};\\
+\>\> Si J est moins lourd que K Alors \underline{la pièce K est plus lourde que les autres};\\
+\>\> Si J et K sont équilibrés Alors {\em il y a une contradiction};\\
+\> Si D+H et E+F sont équilibrés Alors\\
+\>\> Diviser G en 3 groupes J, K et L contenant 1 pièce chacun;\\
+\>\> {\bf Comparer}[3] J et K;\\
+\>\> Si J est plus lourd que K Alors \underline{la pièce K est moins lourde que les autres};\\
+\>\> Si J est moins lourd que K Alors \underline{la pièce J est moins lourde que les autres};\\
+\>\> Si J et K sont équilibrés Alors \underline{la pièce L est moins lourde que les autres};\\
+Si A est moins lourd que B Alors\\
+\> {\em même raisonement} que dans le cas précédent, en inversant les rôles de A et B;\\
+Si A et B sont équilibrés Alors\\
+\> Diviser C en 3 groupes D, E et F contenant respectivement 1, 1 et 2 pieces;\\
+\> {\bf Comparer}[2] D et E;\\
+\> Si D est plus lourd que E Alors\\
+\>\> Diviser A en 2 groupes G et H contenant respectivement 1 et 3 pieces;\\
+\>\> {\bf Comparer}[3] D et G;\\
+\>\> Si D est plus lourd que G Alors \underline{la pièce D est plus lourde que les autres};\\
+\>\> Si D est moins lourd que G Alors {\em il y a une contradiction};\\
+\>\> Si D et G sont équilibrés Alors \underline{la pièce E est moins lourde que les autres};\\
+\> Si D est moins lourd que E Alors\\
+\>\> {\em même raisonement} que dans le cas précédent, en inversant les rôles de D et E;\\
+\> Si D et E sont équilibrés Alors\\
+\>\> Diviser F en 2 groupes G et H contenant 1 pièce chacun;\\
+\>\> {\bf Comparer}[3] G et D;\\
+\>\> Si G est plus lourd que D Alors \underline{la pièce G est plus lourde que les autres};\\
+\>\> Si G est moins lourd que D Alors \underline{la pièce G est plus lourde que les autres};\\
+\>\> Si G et D sont équilibrés Alors \underline{la pièce H est d'un poids différent des autres};
+\end{tabbing}
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème de géométrie plane}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+Un trésor a été caché et j'ai l'indication suivante:
+\begin{itemize}
+\item
+Depuis le gibet, se rendre jusqu'au platane, puis tourner à droite à $90\degres$ et parcourir la même distance; planter un pieu.
+\item
+Depuis le gibet à nouveau, se rendre jusqu'au pin, puis tourner à gauche à $90\degres$ et parcourir la même distance; planter un pieu.
+\item
+Le trésor se situe entre les deux pieux, à égale distance de chacun d'eux.
+\end{itemize}
+J'ai bien repéré le pin et le platane, mais le gibet a disparu. Comment puis-je tout de même retrouver le trésor.
+\subsection{Solution}
+\begin{center}
+\begin{tikzpicture}[scale=.7]
+\coordinate [label=left:{$O$}] (O) at (0,0);
+\coordinate [label=above:{$A$}] (A) at (2,2.5);
+\coordinate [label=right:{$X$}] (X) at (4.5,0.5);
+\coordinate [label=below:{$B$}] (B) at (2.5,-.3);
+\coordinate [label=right:{$Y$}] (Y) at (2.8,2.2);
+\draw [blue] (O) -- (A) -- (X);
+\draw [blue] (O) -- (B) -- (Y);
+\node [fill=red,inner sep=1pt,label=right:{$T$}] (T) at ($ (X)!.5!(Y) $) {};
+\node [fill=red,inner sep=1pt,label=left:{$I$}] (I) at ($ (A)!.5!(B) $) {};
+\draw [dash pattern=on 1pt off 1pt] (A) -- (B);
+\draw [dash pattern=on 1pt off 1pt] (X) -- (Y);
+\draw [green] (A) -- (I) -- (T);
+\end{tikzpicture}
+\end{center}
+Soit $O$ le gibet, $A$ le platane (et $X$ le pieu correspondant), $B$ le pin (et $Y$ le pieu correspondant). Soit $T$ le trésor (milieu de $X,Y$) et $I$ le milieu de $A,B$. Soit $\phi$ la rotation vectorielle d'angle $90\degres$ (sens trigonométrique, i.e. inverse des aiguilles d'une montre). Vectoriellement les hypothèses se traduisent par:
+\begin{eqnarray*}
+\overrightarrow{AX} & = & -\phi(\overrightarrow{OA}) \\
+\overrightarrow{BY} & = & \phi(\overrightarrow{OB}) \\
+\overrightarrow{OI} & = & \frac{1}{2} (\overrightarrow{OA}+\overrightarrow{OB}) \\
+\overrightarrow{OT} & = & \frac{1}{2} (\overrightarrow{OX}+\overrightarrow{OY})
+\end{eqnarray*}
+Par la relation de Chasles, on obtient
+\begin{eqnarray*}
+\overrightarrow{OX} & = & \overrightarrow{OA}+\overrightarrow{AX} = \overrightarrow{OA} - \phi(\overrightarrow{OA}) \\
+\overrightarrow{OY} & = & \overrightarrow{OB}+\overrightarrow{BY} = \overrightarrow{OB} + \phi(\overrightarrow{OB})
+\end{eqnarray*}
+En additionnant, et divisant par 2, on obtient
+\[
+\overrightarrow{OT} = \frac{1}{2} (\overrightarrow{OX}+\overrightarrow{OY}) =
+\frac{1}{2} (\overrightarrow{OA}+\overrightarrow{OB}) +\phi(\frac{1}{2}(-\overrightarrow{OA}+\overrightarrow{OB})) =
+\overrightarrow{OI}+\phi(\frac{1}{2}\overrightarrow{AB}) =
+\overrightarrow{OI}+\phi(\overrightarrow{AI})
+\]
+Soit, finalement
+\begin{eqnarray*}
+\overrightarrow{IT} & = & \overrightarrow{OT}-\overrightarrow{OI} =\phi(\overrightarrow{AI})
+\end{eqnarray*}
+En d'autre termes, pour trouver le trésor, depuis le platane, se rendre vers le pin, tourner à gauche à mi-chemin et parcourir la même distance. La connaissance du gibet est inutile.
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème de géométrie plane}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+Un trésor a été caché et j'ai l'indication suivante:
+\begin{itemize}
+\item
+Planter un pieu à l'intersection des axes platane-puits et eucalyptus-gibet.
+\item
+Planter un pieu à l'intersection des axes platane-gibet et eucalyptus-puits.
+\item
+Le trésor se trouve à l'intersection de l'axe des deux pieux avec l'axe platane-eucalyptus.
+\end{itemize}
+J'ai bien repéré l'eucalyptus et le platane, mais le puits et le gibet ont disparu. En revanche, la croix à l'intersection des axes platanes-eucalyptus et puits-gibet est toujours là. Comment puis-je tout de même retrouver le trésor.
+\subsection{Solution}
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\coordinate (xinf) at (-2,0);
+\coordinate (xsup) at (2.5,0);
+\coordinate (yinf) at (0,-.5);
+\coordinate (ysup) at (0,2.5);
+\node [fill=red,inner sep=1pt,label=below right:{$O$}] (O) at (0,0) {};
+\node [fill=red,inner sep=1pt,label=below:{$A$}] (A) at (-.5,0) {};
+\node [fill=red,inner sep=1pt,label=below:{$B$}] (B) at (2,0) {};
+\node [fill=red,inner sep=1pt,label=right:{$P$}] (P) at (0,.5) {};
+\node [fill=red,inner sep=1pt,label=right:{$Q$}] (Q) at (0,2) {};
+\node [fill=red,inner sep=1pt,label=above right:{$X$}] (X) at (.75,1.25) {};
+\node [fill=red,inner sep=1pt,label=above left:{$Y$}] (Y) at (-0.35294117647058826, 0.5882352941176471) {};
+\node [fill=red,inner sep=1pt,label=below:{$T$}] (T) at (-1.3333333333333333, 0) {};
+\draw [->] (xinf) -- (xsup);
+\draw [->] (yinf) -- (ysup);
+\draw [blue] (A) -- (P) -- (X);
+\draw [blue] (B) -- (Q) -- (X);
+\draw [blue] (A) -- (Q) -- (Y);
+\draw [blue] (B) -- (P) -- (Y);
+\draw [green] (X) -- (Y) -- (T);
+\end{tikzpicture}
+\end{center}
+Soit $O$ la croix, $A$ et $B$ le platane et l'eucalyptus, $P$ et $Q$ le puits et le gibet, $X$ et $Y$ les deux pieux (intersection de $AP$ avec $BQ$ et de $AQ$ avec $BP$, respectivement). Le trésor se trouve donc en $T$, intersection des droites $XY$ et $AB$. On travaille dans le repère centré sur la croix $O$ et d'axes $AB$ et $PQ$ (ce repère est orthonormé sur la figure, mais cela n'est pas nécessaire). Les coordonnées des points $A,B,P,Q,T$ sont donc
+\[
+A\hascoord{a}{0}\hspace{1cm}B\hascoord{b}{0}
+\hspace{1cm}
+P\hascoord{0}{p}\hspace{1cm}Q\hascoord{0}{q}
+\hspace{1cm}
+T\hascoord{t}{0}
+\]
+Les valeurs de $a,b$ sont connues, celles de $p,q,t$ inconnues. Il est facile de calculer l'équation de chacune des droites suivantes:
+\[
+(AP)\hspace{.5cm}px+ay = ap
+\hspace{2cm}
+(BQ)\hspace{.5cm}qx+by = bq
+\]
+En résolvant, on obtient les coordonnées de $X$ (et celles de $Y$ en permutant $p$ et $q$):
+\[
+X\hascoord{\frac{ab(p-q)}{bp-aq}}{\frac{pq(b-a)}{bp-aq}}
+\hspace{1cm}
+Y\hascoord{\frac{ab(q-p)}{bq-ap}}{\frac{pq(b-a)}{bq-ap}}
+\]
+Les points $T,X,Y$ sont alignés:
+\[
+\left|
+\begin{array}{cc}
+\frac{ab(p-q)}{bp-aq}-t & \frac{ab(q-p)}{bq-ap}-t\\ \\
+\frac{pq(b-a)}{bp-aq} & \frac{pq(b-a)}{bq-ap}
+\end{array}
+\right| = 0
+\]
+La résolution (fastidieuse) donne $t$ en fonction de $a,b,p,q$. Il apparaît que $p,q$ n'interviennent pas dans le résultat final:
+\[
+t=\frac{2ab}{a+b}
+\]
+C'est la moyenne harmonique de $a,b$. Donc, les positions $p$ et $q$ du puits et du gibet sont inutiles pour retrouver le trésor.
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème d'optimisation combinatoire}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+Une porte d'entrée est controlée par un digicode à 10 touches (0-9). Le code comporte quatre chiffres. N'importe quelle séquence contenant les quatre chiffres du code (consécutifs et dans l'ordre) ouvre la porte. Quelle est la longueur de la plus petite séquence ouvrant la porte à coup sûr ?
+\subsection{Solution}
+Une séquence peut être représentée par un chemin dans un graphe de l'espace des codes. Les noeuds sont les codes de quatre chiffres et un arc relie un noeud A à un noeud B si les trois derniers chiffres de A sont exactement identiques aux trois premiers chiffres de B. Une séquence ouvre la porte à coup sûr si elle constitue un chemin qui passe par tous les noeuds du graphe. Clairement, s'il existe un circuit Hamiltonien (i.e. un circuit fermé qui passe par tous les noeuds sans se recouper), alors il correspond à une séquence minimale. Un tel circuit contient 10000 arcs et correspond donc à une séquence de 10003 touches. L'existence d'un tel circuit est assurée par un théorème de théorie des Graphes:
+\begin{quote}
+Etant donné un graphe, si le nombre d'arcs entrant à chaque noeud est égal au nombre d'arcs sortant, alors le graphe possède un circuit Hamiltonien (qui passe par tous les noeuds sans se recouper)
+\end{quote}
+Le cas du graphe considéré ici satisfait bien l'hypothèse puisque chaque noeud $abcd$ a 10 arcs entrant (depuis les noeuds $xabc$ pour $x\in0,\cdots,9$) et 10 arcs sortant (vers les noeuds $bcdx$ pour $x\in0,\cdots,9$).
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème de géométrie plane}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+Soit $R$ un rectangle de cotés $a$ et $b$ donnés. Un rectangle de cotés $x$ et $y$ est dit ``inscrit'' dans $R$ si tous ses sommets sont sur $R$. Quelle relation doit vérifier $x,y,a,b$ dans ce cas ? Combien y a-t-il de rectangles inscrits dans $R$ dont un des cotés est $a$ ?
+\subsection{Solution}
+\begin{center}
+\begin{tikzpicture}[scale=3]
+\draw (0,0) rectangle (0.84748658561247081,1);
+\draw[blue,rotate around={-21.470701432439952:(0,0.21132486540518702)}] (0,0.21132486540518702) rectangle (0.57735026918962573,1.0588114510176578);
+\coordinate [label=below:{$a$}] (a) at (0.42374329280623541,0);
+\coordinate [label=right:{$b$}] (b) at (0.84748658561247081,.5);
+\coordinate [label=left:{\color{blue}$x$}] (x) at (0.69238577576212101, 0.39433756729740649);
+\coordinate [label=above:{\color{blue}$y$}] (y) at (0.26864248295588555, 0.10566243270259351);
+\draw [blue] (0.63728496591177111,0) arc (0:68.529298567560048:.1);
+\node at (0.68728496591177111,.07) {\color{blue}$\alpha$};
+\end{tikzpicture}
+\end{center}
+Soit $\alpha$ l'angle du coté $x$ du rectangle inscrit avec le coté $a$ de $R$. Les contraintes du problème se traduisent par
+\begin{eqnarray*}
+x\cos\alpha+y\sin\alpha & = & a\\
+x\sin\alpha+y\cos\alpha & = & b
+\end{eqnarray*}
+Par addition et multiplication on obtient:
+\begin{eqnarray*}
+(x+y)(\cos\alpha+\sin\alpha) & = & a+b\\
+(x^2+y^2)\cos\alpha\sin\alpha+xy & = & ab
+\end{eqnarray*}
+En reportant dans $(\cos\alpha+\sin\alpha)^2=1+2\cos\alpha\sin\alpha$, on obtient
+\begin{eqnarray*}
+\left(\frac{a+b}{x+y}\right)^2 & = & 1+2\frac{ab-xy}{x^2+y^2}
+\end{eqnarray*}
+C'est l'équation d'une quartique. En ajoutant la condition $x=a$, et en développant, on obtient
+\[
+(b-y)(\underbrace{y^3+by^2-3a^2y+a^2b}_{P(y)})=0
+\]
+On obtient bien sûr la solution triviale $y=b$ (où $\alpha=0$: le rectangle interieur est identique au rectangle exterieur). Les autres solutions sont obtenues comme zéros positifs de $P$, qui est un polynome du 3-eme degré. La règle des signes de Descartes indique qu'il a 0 ou 2 zeros positifs (en comptant les multiplicités). Les zeros de $P$ s'obtiennent en réduisant $P$:
+\[
+P(y) = b^3Q(\frac{y}{b}+\frac{1}{3})
+\hspace{1cm}\textrm{où}\hspace{1cm}
+Q(z)=z^3-3(r+\frac{1}{9})z+2(r+\frac{1}{27})
+\hspace{1cm}
+r=\left(\frac{a}{b}\right)^2
+\]
+On cherche donc les zeros de $Q$ qui sont ``admissibles'', c-a-d supérieur à $\frac{1}{3}$. Le discriminant (réduit) de $Q$ s'écrit
+\[
+\Delta = (r+\frac{1}{27})^2-(r+\frac{1}{9})^3=-r(r^2-\frac{2}{3}r-\frac{1}{27}) =
+\;\;-r\;\;(r-\underbrace{\frac{1}{3}(1-\frac{2}{\sqrt{3}})}_{<0})\;\;(r-\underbrace{\frac{1}{3}(1+\frac{2}{\sqrt{3}})}_{r^*})
+\]
+On a $Q(\frac{1}{3})=r$ et $Q'(\frac{1}{3})=-3r$. La valeur $r^*=\frac{1}{3}(1+\frac{2}{\sqrt{3}})\approx0.718$ est un seuil:
+\begin{itemize}
+\item
+Si $0<r<r^*$, alors $\Delta>0$ et $Q$ a un unique zéro réel, qui est non admissible puisque $Q(\frac{1}{3})>0$. Donc le problème posé n'a pas de solution non triviale.
+\item
+si $r=r^*$ alors $\Delta=0$ et $Q$ a deux zéros réels (dont un double admissible et un non admissible car négatif). Donc le problème posé a une unique solution non triviale. C'est le cas de la figure ci-dessus. On a
+\[
+a=b\sqrt{\frac{1}{3}(1+\frac{2}{\sqrt{3}})}\approx0.847b
+\hspace{1cm}
+y=b\frac{1}{3}(\sqrt[3]{10+6\sqrt{3}}-1)\approx0.577b
+\hspace{1cm}
+\alpha\approx1.196\textrm{ rad}=68.53\degres
+\]
+\item
+si $r>r^*$ alors $\Delta<0$ et $Q$ a trois zéros réels dont deux admissibles et un non admissible puisque $Q(\frac{1}{3})>0$ et $Q'(\frac{1}{3})<0$. Donc le problème posé a exactement deux solutions non triviales.
+\end{itemize}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème de logique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+On propose à un groupe de prisoniers le marché suivant:
+\begin{itemize}
+\item
+Demain, on vous mettra en file indienne et on donnera à chacun d'entre vous un chapeau blanc ou noir, tiré au hasard, de telle sorte que chacun pourra voir la couleur des chapeaux de tous ceux qui sont devant lui dans la file, mais il ne pourra pas voir la couleur de son propre chapeau ni celle de ceux qui sont derrière lui.
+\item
+Ensuite on demandera à chacun d'entre vous, en parcourant la file de l'arrière vers l'avant, de prédire la couleur de son chapeau.
+\item
+Ceux qui se seront trompés seront exécutés.
+\end{itemize}
+Pendant la nuit, les prisoniers établissent une stratégie qui permet à tous sauf peut-être un d'être sauvés. Quelle est cette stratégie.
+\subsection{Solution}
+On attribue arbitrairement un nombre modulo 2 à chaque couleur (e.g. blanc=1 et noir=0). Chaque prisonier annonce la couleur correspondant à la somme, modulo 2, des nombres qu'il a déjà entendus (annoncés précédement par ceux qui sont derrière lui) et des nombres associés aux chapeaux qu'il peut voir (portés par ceux qui sont devant lui). Ainsi, si $x_i$ désigne la couleur du chapeau (entier modulo 2) du prisonier $i$, et $p_i$ sa prédiction, on a (modulo 2):
+\begin{eqnarray*}
+\forall i\hspace{1cm}p_i & = & \sum_{j<i}p_j+\sum_{j>i}x_j
+\end{eqnarray*}
+Donc pour $i>1$ on a
+\[
+p_i = \sum_{j<i}p_j+\sum_{j>i}x_j
+\hspace{1cm}
+p_{i-1} = \sum_{j<i-1}p_j+\sum_{j>i-1}x_j
+\]
+Par soustraction, on obtient $p_i-p_{i-1}=p_{i-1}-x_i$, soit $p_i=2p_{i-1}-x_i=x_i$ (modulo 2). Ainsi, tous les prisonniers sont sauvés, sauf peut-être le premier (au fond de la file). Reste à choisir le sacrifié...
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème d'optimisation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+Un camion doit traverser le désert sur une unique piste linéaire. Sa capacité totale est d'une unité de gasole. Il peut circuler sur la piste dans les deux sens, à vitesse constante, et consomme une unité de gazole par unité de distance quelque soit sa charge. Il peut aussi déposer des réserves en tout point de la piste, et les recharger plus tard (évaporation et pertes négligées). Quelle quantité minimale de gasole stockée au point de départ nécessite-t-il pour avancer de 2 unités de distance sur la piste.
+\subsection{Solution}
+Un trajet sur la piste peut s'exprimer par une séquence $(x_t,u_t)_{t=0}^T$ où $x_t$ est un point de la piste où le camion effectue un arrêt et $x_t$ est le nombre d'unités de gazole transférées à ce point ($x_t>0$ pour chargement, $x_t<0$ pour un déchargement, mais on accepte aussi des points d'arrêt virtuels où $x_t=0$, i.e. aucun transfert n'est effectué).
+
+
+
+Soit $f(q)$ la distance maximale que le camion peut parcourir avec $q$ unités de gazole au départ.
+Soit $\phi(q,x)$ la quantité minimale de gasole requise pour amener la quantité $q$ à une distance $x$ (distance mesurée en unités de gazole pour un trajet direct). On établi d'abord que:
+\[
+\forall q\forall x,y>0\hspace{.5cm} \phi(q,x+y) = \phi(\phi(q,x),y)
+\]
+\begin{proof}
+En effet, considérons un trajet minimal qui amène $q$ en $x+y$. Il est clair que le trajet se trouve entièrement dans l'interval $[0,x+y]$ car sinon, il suffirait de supprimer les parties qui dépassent et obtenir un trajet plus court. Considérons la partie $P$ du trajet qui se trouve en deça de $x$. Cette partie peut ne pas être connexe, mais, par permutation, on peut la rendre connexe. En effet, soit $N$ le nombre d'intervals séparés constituant $P$. Si $P$ n'est pas connexe, on a donc $N>1$. Le trajet se compose donc d'un interval $I_1$ en deça de $x$ (nécéssairement, au début), puis d'un interval $I_2$ strictement au dela de $x$, puis d'un nouvel interval $I_3$ en deça de $x$, puis d'une partie $P'$ avec $N-2$ intervals séparés en deça de $x$. Il suffit de permuter $I_2$ et $I_3$ pour obtenir un trajet global avec $N-1$ intervals en deça de $x$. La permutation consiste à remplacer $I_2$ par un arrêt en $x$ faisant le même échange global que lors du trajet $I_2$ (ce ne peut être qu'un déchargement $\Delta$), puis d'exécuter $I_3$, et enfin de rejouer $I_2$ avec ce qui a été déposé en $x$ (i.e. $\Delta$). La juxtaposition de $I_1$ et $I_3$ forme un seul interval en deça de $x$. Celle de $I_2$ et $P'$ totalise $N-2$ intervals en deça de $x$, soit au total $N-1$ intervals en deça de $x$. En réitérant le processus, on se ramène à un seul interval en deça de $x$. Le trajet consiste donc en un interval jusqu'en $x$ à l'issue duquel il reste une quantité $Q$, suivie d'un interval entre $x$ et $x+y$ qui utilise $Q$ pour amener $q$ en $x+y$. Comme les deux parties sont optimales, on obtient la propriété voulue.
+\end{proof}
+\[
+\forall q\exists t<.5\forall x<t\hspace{.5cm} \phi(q,x) = q+\left(1+2\lfloor\frac{q}{1-2x}\rfloor\right)x
+\]
+\begin{proof}
+En effet, pour $t$ suffisamment petit, la stratégie optimale pour transporter $q$ en $x<t$ consiste à faire éventuellement des aller-retours de taille $x$, suivi d'un aller simple de taille $x$ ne laissant rien derrière. Au début de chaque aller-retour, le camion est chargé à bloc, puis arrivé en $x$, dépose tout son chargement sauf le minimum pour effectuer le retour. Donc, si $n$ est le nombre d'aller-retour, on a $\phi(q,x)=n+r$ avec $n(1-2x)+r-x=q$ et $x\leq r\leq1$ (au moins $x$ pour effectuer le dernier aller simple, mais au plus $1$ pour ne rien laisser derrière). Donc $n+r=q+(2n+1)x$ et on doit avoir $n+x\leq q+(2n+1)x\leq n+1$ soit, pour $x$ suffisament petit, $n=\lfloor\frac{q}{1-2x}\rfloor$.
+\end{proof}
+En combinant les résultats précédents, on obtient
+\[
+\phi(q,x+\delta)=\phi(\phi(q,x),\delta)=\phi(q,x)+\left(1+2\lfloor\frac{\phi(q,x)}{1-2\delta}\rfloor\right)\delta
+\hspace{.5cm}\textrm{soit}\hspace{.5cm}
+\frac{\phi(q,x+\delta)-\phi(q,x)}{\delta}=1+2\lfloor\frac{\phi(q,x)}{1-2\delta}\rfloor
+\]
+En notant $f(x)=\phi(0,x)$ on obtient l'équation différentielle $f'(x)=1+2\lfloor f(x)\rfloor$ avec $f(0)=0$. Pour une distance $d$ donnée, la quantité $q=f(d)$ satisfait
+\[
+d = \int_0^q\frac{\mathbf{d}y}{1+2\lfloor y\rfloor} =
+\sum_{k=0}^{\lfloor q\rfloor-1}\frac{1}{2k+1}+\frac{q-\lfloor q\rfloor}{2\lfloor q\rfloor+1}
+\]
+Pour $d=2$, on obtient $\lfloor q\rfloor=7$ et $\frac{q-7}{15}=2-\sum_{k=0}^{6}\frac{1}{2k+1}$, soit $q=7+\frac{2021}{3003}\approx7.672993672993677$.
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Un problème de logique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Enoncé}
+En quels points de la terre peut on effectuer le circuit fermé suivant, sans passer par le pôle: 1km vers le Nord, 1km vers l'Est, 1km vers le Sud.
+\subsection{Solution}
+A 1km au Sud du cercle de l'hémisphère Nord, parallèle à l'équateur, et de 1km de circonférence. Ce cercle se trouve approximativement à $\frac{1}{2\pi}$ km au Sud du pôle Nord.
+\pagebreak
+
+\end{document}
