@@ -25,6 +25,10 @@
 \setcounter{bottomnumber}{99}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%      MACROS     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\hascoord}[2]{\left(\begin{array}{c}{#1}\\{#2}\end{array}\right)}
+\newcommand{\carac}[1]{\mathbb{I}[{#1}]}
+
+\newenvironment{statement}{\subsection{Enoncé}}{\pagebreak}
+\newenvironment{solution}{\subsection{Solution}}{\pagebreak}
 
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
@@ -39,22 +43,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-% template:
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{Un problème de logique}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% \subsection{Enoncé}
-% 
-% \subsection{Solution}
-%
-% \pagebreak
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème de logique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 Les 16 segments suivants (délimités par les points rouges), forment cinq carrés. Former quatre carrés de même taille en déplaçant seulement deux segments.
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
@@ -80,7 +72,9 @@ Les 16 segments suivants (délimités par les points rouges), forment cinq carr�
 \draw [gray] (P40) -- (P41);
 \end{tikzpicture}
 \end{center}
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
 \node [fill=green,inner sep=2pt] (P10) at (1,0) {};
@@ -111,13 +105,12 @@ Les 16 segments suivants (délimités par les points rouges), forment cinq carr�
 \draw [gray] (P40) -- (P41);
 \end{tikzpicture}
 \end{center}
-\pagebreak
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème de logique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 Tracer cinq segments de droites qui forment une courbe fermée (cinq sommets) et qui passent par les points suivants (en rouge) sans se couper en aucun d'entre eux:
 \begin{center}
 \begin{tikzpicture}[scale=2]
@@ -138,7 +131,9 @@ Tracer cinq segments de droites qui forment une courbe fermée (cinq sommets) et
 \draw [gray] (P20) -- (P22);
 \end{tikzpicture}
 \end{center}
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 \begin{center}
 \begin{tikzpicture}[scale=2]
 \node [fill=red,inner sep=2pt] (P00) at (0,0) {};
@@ -164,34 +159,36 @@ Tracer cinq segments de droites qui forment une courbe fermée (cinq sommets) et
 \draw [green] (A) -- (D) -- (C) -- (B) -- (E) -- (A);
 \end{tikzpicture}
 \end{center}
-\pagebreak
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème de logique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 Je propose à Kharpov et Kasparov le marché suivant:
 \begin{quote}
 Je joue une partie contre chacun d'entre vous. Si je perds les deux parties, je vous donne \$1M chacun. Sinon (c'est-à-dire si je gagne ou fait match nul à au moins une partie) vous me donnez \$2M. Les conditions sont celles d'un championat mais je me réserve le droit de choisir le lieu et l'heure des parties et aussi, de choisir ma couleur (blanc ou noir).
 \end{quote}
 Bien qu'en apparence, le marché leur soit favorable, ils refusent, car ils s'aperçoivent qu'ils sont
 nécessairement perdant. Pourquoi?
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 En effet, il me suffit de jouer les deux parties au même moment et au même endroit (parties simultanées). Je prends les blancs contre Kharpov et les noirs contre Kasparov, puis, je me contente de reproduire les coups de Kasparov contre Kharpov et réciproquement. En fait, tout se passe comme si les deux champions jouaient l'un contre l'autre: je ne suis qu'un intermédiaire. Comme ils ne peuvent pas tous les deux perdre leur partie, je gagne selon les termes du marché.
-\pagebreak
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème de logique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 On propose à trois prisonniers le marché suivant:
 \begin{quote}
 Dans ce sac, il y a trois disques blancs et deux disques noirs. Chacun d'entre vous va choisir un disque. Il pourra voir celui de ses deux compatriotes mais pas le sien propre. Ensuite, vous serez interrogés successivement sur la couleur de votre disque. L'interrogatoire se déroulera en présence de vous trois. Si l'un d'entre vous répond juste, vous êtes tous libres, sinon, c'est le cachot.
 \end{quote}
 Si tous les prisonniers font preuve de logique, ils s'en sortent nécessairement. Pourquoi?
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 Soit 1,2 et 3 les prisonniers, dans l'ordre où ils parlent. Supposons que 1 et 2 se soient trompés.
 \begin{itemize}
 \item
@@ -204,13 +201,12 @@ Si 1 a dit noir et 2 a dit blanc, même raisonnement que dans le cas précédent
 Si 1 et 2 ont tous les deux dit noir, ils portent donc tous les deux des disques blancs. 3 se dit que s'il portait un disque noir, 2 se serait dit que s'il avait porté un disque noir, 1 aurait vu deux disques noirs et ne se serait pas trompé. 3 est donc sûr que s'il portait un disque noir, 2 ne se serait pas trompé. 3 peut donc répondre blanc à coup sûr.
 \end{itemize}
 Ainsi, si 1 et 2 se trompent, 3 répond à coup sûr. Donc, les trois ne peuvent se tromper en même temps.
-\pagebreak
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème d'arithmétique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 Une personne choisit deux nombres entiers $x$ et $y$ compris entre $2$ et $99$ et dit à une personne {\bf P} la valeur de $xy$ et à une personne {\bf S} la valeur de $x+y$. Il s'ensuit la conversation suivante entre {\bf P} et {\bf S}:
 \begin{itemize}
 \item {\bf P}: Je ne connais pas les nombres $x$ et $y$.
@@ -219,7 +215,9 @@ Une personne choisit deux nombres entiers $x$ et $y$ compris entre $2$ et $99$ e
 \item {\bf S}: Maintenant je les connais aussi.
 \end{itemize}
 Quelles sont les valeurs des deux nombres $x$,$y$ ?
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 On suppose sans perte de généralité que $x\leq y$. Le domaine du problème est
 \begin{eqnarray*}
 E & = & \{(x,y)\in\mathbb{N}^2|2\leq x\leq y\leq 99\}
@@ -240,7 +238,7 @@ L'ensemble des solutions après la quatrième réponse est donné par
 \begin{eqnarray*}
 E_4 & = & \{(x,y)\in E_3|\exists! (u,v)\in E_3\;u+v=x+y\}
 \end{eqnarray*}
-Résultats (obtenus par informatique):
+Résultats (obtenus par le programme python ci-dessous):
 \[
 |E| = 4851
 \hspace{1cm}
@@ -254,15 +252,34 @@ Résultats (obtenus par informatique):
 \hspace{1cm}
 E_4 = \{(4,13)\}
 \]
-\pagebreak
+\begin{verbatim}
+from collections import defaultdict
+a = [(x,y) for x in range(2,100) for y in range(x,100)]
+print('|E| =',len(a))
+p = defaultdict(int); s = defaultdict(list)
+for u,v in a: p[u*v] += 1; s[u+v].append((u,v))
+print('|E1|=',sum(n for n in p.values() if n>1))
+a = sum((l for l in s.values() if all(p[u*v]>1 for u,v in l)),[])
+print('|E2|=',len(a))
+p = defaultdict(int)
+for u,v in a: p[u*v] += 1
+a = [(x,y) for x,y in a if p[x*y] == 1]
+print('|E3|=',len(a))
+s = defaultdict(int)
+for u,v in a: s[u+v] += 1
+a = [(x,y) for x,y in a if s[x+y] == 1]
+print('E4=',a)
+\end{verbatim}
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème de logique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 Etant données 12 pieces de monnaie, ayant toutes le même poids sauf une, déterminer celle-ci en trois pesées, avec une balance à équilibre (sans usage de poids de référence).
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 \begin{tabbing}
 \hspace{1cm}\=\kill
 \>\hspace{1cm}\=\kill
@@ -312,14 +329,12 @@ Si A et B sont équilibrés Alors\\
 \>\> Si G est moins lourd que D Alors \underline{la pièce G est plus lourde que les autres};\\
 \>\> Si G et D sont équilibrés Alors \underline{la pièce H est d'un poids différent des autres};
 \end{tabbing}
-
-\pagebreak
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème de géométrie plane}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 Un trésor a été caché et j'ai l'indication suivante:
 \begin{itemize}
 \item
@@ -330,7 +345,9 @@ Depuis le gibet à nouveau, se rendre jusqu'au pin, puis tourner à gauche à $9
 Le trésor se situe entre les deux pieux, à égale distance de chacun d'eux.
 \end{itemize}
 J'ai bien repéré le pin et le platane, mais le gibet a disparu. Comment puis-je tout de même retrouver le trésor.
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 \begin{center}
 \begin{tikzpicture}[scale=.7]
 \coordinate [label=left:{$O$}] (O) at (0,0);
@@ -371,13 +388,12 @@ Soit, finalement
 \overrightarrow{IT} & = & \overrightarrow{OT}-\overrightarrow{OI} =\phi(\overrightarrow{AI})
 \end{eqnarray*}
 En d'autre termes, pour trouver le trésor, depuis le platane, se rendre vers le pin, tourner à gauche à mi-chemin et parcourir la même distance. La connaissance du gibet est inutile.
-\pagebreak
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème de géométrie plane}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 Un trésor a été caché et j'ai l'indication suivante:
 \begin{itemize}
 \item
@@ -388,7 +404,9 @@ Planter un pieu à l'intersection des axes platane-gibet et eucalyptus-puits.
 Le trésor se trouve à l'intersection de l'axe des deux pieux avec l'axe platane-eucalyptus.
 \end{itemize}
 J'ai bien repéré l'eucalyptus et le platane, mais le puits et le gibet ont disparu. En revanche, la croix à l'intersection des axes platanes-eucalyptus et puits-gibet est toujours là. Comment puis-je tout de même retrouver le trésor.
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
 \coordinate (xinf) at (-2,0);
@@ -446,29 +464,31 @@ La résolution (fastidieuse) donne $t$ en fonction de $a,b,p,q$. Il apparaît qu
 t=\frac{2ab}{a+b}
 \]
 C'est la moyenne harmonique de $a,b$. Donc, les positions $p$ et $q$ du puits et du gibet sont inutiles pour retrouver le trésor.
-\pagebreak
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème d'optimisation combinatoire}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 Une porte d'entrée est controlée par un digicode à 10 touches (0-9). Le code comporte quatre chiffres. N'importe quelle séquence contenant les quatre chiffres du code (consécutifs et dans l'ordre) ouvre la porte. Quelle est la longueur de la plus petite séquence ouvrant la porte à coup sûr ?
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 Une séquence peut être représentée par un chemin dans un graphe de l'espace des codes. Les noeuds sont les codes de quatre chiffres et un arc relie un noeud A à un noeud B si les trois derniers chiffres de A sont exactement identiques aux trois premiers chiffres de B. Une séquence ouvre la porte à coup sûr si elle constitue un chemin qui passe par tous les noeuds du graphe. Clairement, s'il existe un circuit Hamiltonien (i.e. un circuit fermé qui passe par tous les noeuds sans se recouper), alors il correspond à une séquence minimale. Un tel circuit contient 10000 arcs et correspond donc à une séquence de 10003 touches. L'existence d'un tel circuit est assurée par un théorème de théorie des Graphes:
 \begin{quote}
 Etant donné un graphe, si le nombre d'arcs entrant à chaque noeud est égal au nombre d'arcs sortant, alors le graphe possède un circuit Hamiltonien (qui passe par tous les noeuds sans se recouper)
 \end{quote}
 Le cas du graphe considéré ici satisfait bien l'hypothèse puisque chaque noeud $abcd$ a 10 arcs entrant (depuis les noeuds $xabc$ pour $x\in0,\cdots,9$) et 10 arcs sortant (vers les noeuds $bcdx$ pour $x\in0,\cdots,9$).
-\pagebreak
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème de géométrie plane}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 Soit $R$ un rectangle de cotés $a$ et $b$ donnés. Un rectangle de cotés $x$ et $y$ est dit ``inscrit'' dans $R$ si tous ses sommets sont sur $R$. Quelle relation doit vérifier $x,y,a,b$ dans ce cas ? Combien y a-t-il de rectangles inscrits dans $R$ dont un des cotés est $a$ ?
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 \begin{center}
 \begin{tikzpicture}[scale=3]
 \draw (0,0) rectangle (0.84748658561247081,1);
@@ -528,13 +548,12 @@ y=b\frac{1}{3}(\sqrt[3]{10+6\sqrt{3}}-1)\approx0.577b
 \item
 si $r>r^*$ alors $\Delta<0$ et $Q$ a trois zéros réels dont deux admissibles et un non admissible puisque $Q(\frac{1}{3})>0$ et $Q'(\frac{1}{3})<0$. Donc le problème posé a exactement deux solutions non triviales.
 \end{itemize}
-\pagebreak
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème de logique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 On propose à un groupe de prisoniers le marché suivant:
 \begin{itemize}
 \item
@@ -545,7 +564,9 @@ Ensuite on demandera à chacun d'entre vous, en parcourant la file de l'arrière
 Ceux qui se seront trompés seront exécutés.
 \end{itemize}
 Pendant la nuit, les prisoniers établissent une stratégie qui permet à tous sauf peut-être un d'être sauvés. Quelle est cette stratégie.
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 On attribue arbitrairement un nombre modulo 2 à chaque couleur (e.g. blanc=1 et noir=0). Chaque prisonier annonce la couleur correspondant à la somme, modulo 2, des nombres qu'il a déjà entendus (annoncés précédement par ceux qui sont derrière lui) et des nombres associés aux chapeaux qu'il peut voir (portés par ceux qui sont devant lui). Ainsi, si $x_i$ désigne la couleur du chapeau (entier modulo 2) du prisonier $i$, et $p_i$ sa prédiction, on a (modulo 2):
 \begin{eqnarray*}
 \forall i\hspace{1cm}p_i & = & \sum_{j<i}p_j+\sum_{j>i}x_j
@@ -557,55 +578,53 @@ p_i = \sum_{j<i}p_j+\sum_{j>i}x_j
 p_{i-1} = \sum_{j<i-1}p_j+\sum_{j>i-1}x_j
 \]
 Par soustraction, on obtient $p_i-p_{i-1}=p_{i-1}-x_i$, soit $p_i=2p_{i-1}-x_i=x_i$ (modulo 2). Ainsi, tous les prisonniers sont sauvés, sauf peut-être le premier (au fond de la file). Reste à choisir le sacrifié...
-\pagebreak
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème d'optimisation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 Un camion doit traverser le désert sur une unique piste linéaire. Sa capacité totale est d'une unité de gasole. Il peut circuler sur la piste dans les deux sens, à vitesse constante, et consomme une unité de gazole par unité de distance quelque soit sa charge. Il peut aussi déposer des réserves en tout point de la piste, et les recharger plus tard (évaporation et pertes négligées). Quelle quantité minimale de gasole stockée au point de départ nécessite-t-il pour avancer de 2 unités de distance sur la piste.
-\subsection{Solution}
-Un trajet sur la piste peut s'exprimer par une séquence $(x_t,u_t)_{t=0}^T$ où $x_t$ est un point de la piste où le camion effectue un arrêt et $x_t$ est le nombre d'unités de gazole transférées à ce point ($x_t>0$ pour chargement, $x_t<0$ pour un déchargement, mais on accepte aussi des points d'arrêt virtuels où $x_t=0$, i.e. aucun transfert n'est effectué).
-
-
-
-Soit $f(q)$ la distance maximale que le camion peut parcourir avec $q$ unités de gazole au départ.
-Soit $\phi(q,x)$ la quantité minimale de gasole requise pour amener la quantité $q$ à une distance $x$ (distance mesurée en unités de gazole pour un trajet direct). On établi d'abord que:
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
+Un trajet sur la piste peut s'exprimer par une séquence $(x_t,q_t,u_t)_{t=0}^T$ où $x_t\geq0$ est un point de la piste où le camion effectue un arrêt, $q_t\geq0$ est le chargement du camion à l'arrivée en ce point (avec $q_0=0$), et $u_t$ est le nombre d'unités de gazole transférées à ce point ($u_t>0$ pour chargement, $u_t<0$ pour un déchargement, mais on accepte aussi des points d'arrêt virtuels où $u_t=0$, i.e. aucun transfert n'est effectué). Les conditions suivantes doivent être remplies:
 \[
-\forall q\forall x,y>0\hspace{.5cm} \phi(q,x+y) = \phi(\phi(q,x),y)
+\begin{array}{rclcl}
+\forall t\in0:T && x_0\leq x_t\leq x_T&&\textrm{if }t\geq1\;\;x_t\not=x_{t-1}\\
+\forall t\in0:T && 0\leq q_t+u_t\leq c&&\textrm{if }t\geq1\;\;q_t = q_{t-1}+u_{t-1}-|x_t-x_{t-1}|\\
+\forall t\in1:T\;\forall a\in(x_0,x_T] && \sum_{t'\in0:t}\carac{x_{t'}=a}u_{t'}\leq0&&
+\end{array}
 \]
+La première condition indique qu'un trajet est toujours limité à la section de piste entre son point de départ et son point d'arrivée. La deuxième condition assure qu'un trajet n'effectue jamais de sur-place. La troisième condition assure que le bilan des transferts en tout point du trajet autre que le point de départ ne peut jamais être positif. La quatrième condition indique qu'au départ de chaque point d'arrêt, la charge du camion doit respecter les contraintes de capacité. Enfin, la dernière condition exprime le bilan du camion entre l'arrivée en un point et l'arrivée au suivant.
+\begin{definition}
+Un trajet est dit {\em élémentaire} s'il consiste en une séquence d'aller-retour entre deux points suivi d'un dernier aller simple, dont le résultat global est donc d'effectuer un échange de gazole entre le point de départ et le point d'arriver:
+\[\forall t\in 0:T \hspace{.5cm} x_t=x_0 \;\vee\; x_t=x_T\]
+Un trajet {\em canonique} est une séquence de trajets élémentaires.
+\end{definition}
+\begin{theorem}
+Tout trajet de longueur $T$ peut être transformé en un trajet canonique ayant le même point de départ, le même point d'arrivée.
+\end{theorem}
 \begin{proof}
-En effet, considérons un trajet minimal qui amène $q$ en $x+y$. Il est clair que le trajet se trouve entièrement dans l'interval $[0,x+y]$ car sinon, il suffirait de supprimer les parties qui dépassent et obtenir un trajet plus court. Considérons la partie $P$ du trajet qui se trouve en deça de $x$. Cette partie peut ne pas être connexe, mais, par permutation, on peut la rendre connexe. En effet, soit $N$ le nombre d'intervals séparés constituant $P$. Si $P$ n'est pas connexe, on a donc $N>1$. Le trajet se compose donc d'un interval $I_1$ en deça de $x$ (nécéssairement, au début), puis d'un interval $I_2$ strictement au dela de $x$, puis d'un nouvel interval $I_3$ en deça de $x$, puis d'une partie $P'$ avec $N-2$ intervals séparés en deça de $x$. Il suffit de permuter $I_2$ et $I_3$ pour obtenir un trajet global avec $N-1$ intervals en deça de $x$. La permutation consiste à remplacer $I_2$ par un arrêt en $x$ faisant le même échange global que lors du trajet $I_2$ (ce ne peut être qu'un déchargement $\Delta$), puis d'exécuter $I_3$, et enfin de rejouer $I_2$ avec ce qui a été déposé en $x$ (i.e. $\Delta$). La juxtaposition de $I_1$ et $I_3$ forme un seul interval en deça de $x$. Celle de $I_2$ et $P'$ totalise $N-2$ intervals en deça de $x$, soit au total $N-1$ intervals en deça de $x$. En réitérant le processus, on se ramène à un seul interval en deça de $x$. Le trajet consiste donc en un interval jusqu'en $x$ à l'issue duquel il reste une quantité $Q$, suivie d'un interval entre $x$ et $x+y$ qui utilise $Q$ pour amener $q$ en $x+y$. Comme les deux parties sont optimales, on obtient la propriété voulue.
+En effet, raisonnons par récurrence sur $T$. Si $T=0$, la propriété est évidente: un trajet de longueur nulle est déjà canonique (séquence vide de trajets élémentaires). Si $T>0$ et la propriété est vrai pour $0\ldots T-1$, il faut la montrer pour $T$. Considérons un trajet de longueur $T$ et soit $a=\min\{x_t|x_t>x_0\}$. Si $a=x_T$ alors le trajet est déjà canonique. Supposons donc que $x_0<a<x_T$. Considérons la partie $P$ du trajet qui se trouve en deça de $a$. Cette partie peut ne pas être connexe, mais, par permutation, on peut la rendre connexe. En effet, soit $N$ le nombre d'intervals séparés constituant $P$. Si $P$ n'est pas connexe, on a donc $N>1$. Le trajet se compose donc d'un interval $I_1$ en deça de $a$ (nécéssairement, au début), puis d'un interval $I_2$ strictement au dela de $a$, puis d'un nouvel interval $I_3$ en deça de $a$, puis d'une partie $P'$ avec $N-2$ intervals séparés en deça de $a$. Il suffit de permuter $I_2$ et $I_3$ pour obtenir un trajet global avec $N-1$ intervals en deça de $a$. La permutation consiste à remplacer $I_2$ par un arrêt en $a$ faisant le même échange global que lors du trajet $I_2$ (ce ne peut être qu'un déchargement $\Delta$), puis d'exécuter $I_3$, et enfin de rejouer $I_2$ avec ce qui a été déposé en $a$ (i.e. $\Delta$). La juxtaposition de $I_1$ et $I_3$ forme un seul interval en deça de $a$. Celle de $I_2$ et $P'$ totalise $N-2$ intervals en deça de $a$, soit au total $N-1$ intervals en deça de $a$. En réitérant le processus, on se ramène à un seul interval en deça de $a$. Le trajet consiste donc en un interval jusqu'en $a$ suivi d'un trajet entre $a$ et $x_T$ de longueur inférieure à $T$.
 \end{proof}
-\[
-\forall q\exists t<.5\forall x<t\hspace{.5cm} \phi(q,x) = q+\left(1+2\lfloor\frac{q}{1-2x}\rfloor\right)x
-\]
-\begin{proof}
-En effet, pour $t$ suffisamment petit, la stratégie optimale pour transporter $q$ en $x<t$ consiste à faire éventuellement des aller-retours de taille $x$, suivi d'un aller simple de taille $x$ ne laissant rien derrière. Au début de chaque aller-retour, le camion est chargé à bloc, puis arrivé en $x$, dépose tout son chargement sauf le minimum pour effectuer le retour. Donc, si $n$ est le nombre d'aller-retour, on a $\phi(q,x)=n+r$ avec $n(1-2x)+r-x=q$ et $x\leq r\leq1$ (au moins $x$ pour effectuer le dernier aller simple, mais au plus $1$ pour ne rien laisser derrière). Donc $n+r=q+(2n+1)x$ et on doit avoir $n+x\leq q+(2n+1)x\leq n+1$ soit, pour $x$ suffisament petit, $n=\lfloor\frac{q}{1-2x}\rfloor$.
-\end{proof}
-En combinant les résultats précédents, on obtient
-\[
-\phi(q,x+\delta)=\phi(\phi(q,x),\delta)=\phi(q,x)+\left(1+2\lfloor\frac{\phi(q,x)}{1-2\delta}\rfloor\right)\delta
-\hspace{.5cm}\textrm{soit}\hspace{.5cm}
-\frac{\phi(q,x+\delta)-\phi(q,x)}{\delta}=1+2\lfloor\frac{\phi(q,x)}{1-2\delta}\rfloor
-\]
 En notant $f(x)=\phi(0,x)$ on obtient l'équation différentielle $f'(x)=1+2\lfloor f(x)\rfloor$ avec $f(0)=0$. Pour une distance $d$ donnée, la quantité $q=f(d)$ satisfait
 \[
 d = \int_0^q\frac{\mathbf{d}y}{1+2\lfloor y\rfloor} =
 \sum_{k=0}^{\lfloor q\rfloor-1}\frac{1}{2k+1}+\frac{q-\lfloor q\rfloor}{2\lfloor q\rfloor+1}
 \]
 Pour $d=2$, on obtient $\lfloor q\rfloor=7$ et $\frac{q-7}{15}=2-\sum_{k=0}^{6}\frac{1}{2k+1}$, soit $q=7+\frac{2021}{3003}\approx7.672993672993677$.
-\pagebreak
+\end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Un problème de logique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Enoncé}
+\begin{statement}
 En quels points de la terre peut on effectuer le circuit fermé suivant, sans passer par le pôle: 1km vers le Nord, 1km vers l'Est, 1km vers le Sud.
-\subsection{Solution}
+\end{statement}
+%--------------------------------------------------------------------------
+\begin{solution}
 A 1km au Sud du cercle de l'hémisphère Nord, parallèle à l'équateur, et de 1km de circonférence. Ce cercle se trouve approximativement à $\frac{1}{2\pi}$ km au Sud du pôle Nord.
-\pagebreak
+\end{solution}
 
 \end{document}

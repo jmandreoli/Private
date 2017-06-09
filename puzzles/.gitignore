@@ -4,4 +4,4 @@
 *.ps
 *.pdf
 old
-
+.ipynb_checkpoints
