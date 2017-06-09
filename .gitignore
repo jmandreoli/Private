@@ -2,6 +2,5 @@
 *.log
 *.synctex.gz
 *.ps
-*.pdf
 old
 .ipynb_checkpoints
