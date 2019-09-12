@@ -5,8 +5,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{times}
-\usepackage{graphicx}
-\graphicspath{{picF/}}
+%\usepackage{graphicx}
+%\graphicspath{{picF/}}
 \usepackage{amsmath,amssymb,amsbsy,amsfonts,amsthm}
 \usepackage{tikz}
 \usetikzlibrary{calc}
@@ -26,6 +26,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%      MACROS     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\hascoord}[2]{\left(\begin{array}{c}{#1}\\{#2}\end{array}\right)}
 \newcommand{\carac}[1]{\mathbb{I}[{#1}]}
+\newcommand{\eqnsymb}[1]{\;\;{#1}\;\;}
 
 \newenvironment{statement}{\subsection{Enoncé}}{\pagebreak}
 \newenvironment{solution}{\subsection{Solution}}{\pagebreak}
@@ -42,12 +43,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%    COVERSHEET   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème de logique}
+\section{Géométrie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
-Les 16 segments suivants (délimités par les points rouges), forment cinq carrés. Former quatre carrés de même taille en déplaçant seulement deux segments.
+Les 16 segments suivants (délimités par les points rouges), forment 5 carrés. Former 4 carrés de même taille en déplaçant seulement deux segments.
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
 \node [fill=red,inner sep=2pt] (P20) at (2,0) {};
@@ -108,7 +108,7 @@ Les 16 segments suivants (délimités par les points rouges), forment cinq carr�
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème de logique}
+\section{Géométrie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
 Tracer cinq segments de droites qui forment une courbe fermée (cinq sommets) et qui passent par les points suivants (en rouge) sans se couper en aucun d'entre eux:
@@ -162,7 +162,7 @@ Tracer cinq segments de droites qui forment une courbe fermée (cinq sommets) et
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème de logique}
+\section{Logique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
 Je propose à Kharpov et Kasparov le marché suivant:
@@ -178,7 +178,7 @@ En effet, il me suffit de jouer les deux parties au même moment et au même end
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème de logique}
+\section{Logique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
 On propose à trois prisonniers le marché suivant:
@@ -204,135 +204,120 @@ Ainsi, si 1 et 2 se trompent, 3 répond à coup sûr. Donc, les trois ne peuvent
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème d'arithmétique}
+\section{Arithmétique}
+\label{sec:upaqe}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
-Une personne choisit deux nombres entiers $x$ et $y$ compris entre $2$ et $99$ et dit à une personne {\bf P} la valeur de $xy$ et à une personne {\bf S} la valeur de $x+y$. Il s'ensuit la conversation suivante entre {\bf P} et {\bf S}:
+Une personne annonce qu'elle a choisi deux nombres entiers $x$ et $y$ compris entre $2$ et $99$ (inclus) et a calculé leur produit $p$ et leur somme $s$. Elle révèle ensuite séparément à une personne {\bf P} la valeur de $p$ et à une personne {\bf S} la valeur de $s$. Il s’ensuit la conversation suivante entre {\bf P} et {\bf S}:
 \begin{itemize}
-\item {\bf P}: Je ne connais pas les nombres $x$ et $y$.
-\item {\bf S}: Je savais déjà que vous ne les connaissiez pas.
-\item {\bf P}: Maintenant je connais les nombres $x$ et $y$.
-\item {\bf S}: Maintenant je les connais aussi.
+\item {\bf S} : Je sais que vous ne pouvez pas déterminer les nombres $x$ et $y$.
+\item {\bf P} : Dans ce cas, je peux les déterminer.
+\item {\bf S} : Dans ce cas, je peux les déterminer aussi.
 \end{itemize}
-Quelles sont les valeurs des deux nombres $x$,$y$ ?
+Quelles sont les valeurs des deux nombres $x,y$ ?
 \end{statement}
 %--------------------------------------------------------------------------
 \begin{solution}
 On suppose sans perte de généralité que $x\leq y$. Le domaine du problème est
-\begin{eqnarray*}
-E & = & \{(x,y)\in\mathbb{N}^2|2\leq x\leq y\leq 99\}
-\end{eqnarray*}
+\begin{align*}
+E & \eqnsymb{=} \{(x,y)\in\mathbb{N}^2|2\leq x\leq y\leq 99\}
+\end{align*}
 L'ensemble des solutions après la première réponse est donné par
-\begin{eqnarray*}
-E_1 & = & \{(x,y)\in E|\neg \exists! (u,v)\in E\;uv=xy\}
-\end{eqnarray*}
+\begin{align*}
+E_1 & \eqnsymb{=} \{(x,y)\in E|\forall(u,v)\in E\;[u+v=x+y\Rightarrow\exists(u',v')\in E\;(u',v')\not=(u,v)\; u'v'=uv] \}
+\end{align*}
 L'ensemble des solutions après la deuxième réponse est donné par
-\begin{eqnarray*}
-E_2 & = & \{(x,y)\in E_1|\forall(u,v)\in E\;[u+v=x+y\Rightarrow(u,v)\in E_1]\}
-\end{eqnarray*}
+\begin{align*}
+E_2 & \eqnsymb{=} \{(x,y)\in E_1|\exists! (u,v)\in E_1\;uv=xy\}
+\end{align*}
 L'ensemble des solutions après la troisième réponse est donné par
-\begin{eqnarray*}
-E_3 & = & \{(x,y)\in E_2|\exists! (u,v)\in E_2\;uv=xy\}
-\end{eqnarray*}
-L'ensemble des solutions après la quatrième réponse est donné par
-\begin{eqnarray*}
-E_4 & = & \{(x,y)\in E_3|\exists! (u,v)\in E_3\;u+v=x+y\}
-\end{eqnarray*}
-Résultats (obtenus par le programme python ci-dessous):
+\begin{align*}
+E_3 & \eqnsymb{=} \{(x,y)\in E_2|\exists! (u,v)\in E_2\;u+v=x+y\}
+\end{align*}
+Résultats (obtenus par le programme python en annexe~\ref{anx:upaqe}):
 \[
 |E| = 4851
 \hspace{1cm}
-|E_1| = 3076
+|E_1| = 145
 \hspace{1cm}
-|E_2| = 145
+|E_2| = 86
 \hspace{1cm}
-|E_3| = 86
-\hspace{1cm}
-|E_4| = 1
-\hspace{1cm}
-E_4 = \{(4,13)\}
+E_3 = \{(4,13)\}
 \]
-\begin{verbatim}
-from collections import defaultdict
-a = [(x,y) for x in range(2,100) for y in range(x,100)]
-print('|E| =',len(a))
-p = defaultdict(int); s = defaultdict(list)
-for u,v in a: p[u*v] += 1; s[u+v].append((u,v))
-print('|E1|=',sum(n for n in p.values() if n>1))
-a = sum((l for l in s.values() if all(p[u*v]>1 for u,v in l)),[])
-print('|E2|=',len(a))
-p = defaultdict(int)
-for u,v in a: p[u*v] += 1
-a = [(x,y) for x,y in a if p[x*y] == 1]
-print('|E3|=',len(a))
-s = defaultdict(int)
-for u,v in a: s[u+v] += 1
-a = [(x,y) for x,y in a if s[x+y] == 1]
-print('E4=',a)
-\end{verbatim}
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème de logique}
+\section{Logique}
+\label{sec:eddpdm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
-Etant données 12 pieces de monnaie, ayant toutes le même poids sauf une, déterminer celle-ci en trois pesées, avec une balance à équilibre (sans usage de poids de référence).
+Etant données 12 pieces de monnaie, ayant toutes le même poids sauf une, déterminer celle-ci en trois pesées, avec une balance à équilibre (sans usage de poids de référence). Déterminer si la pièce distinguée est plus lourde ou plus légère que les autres.
 \end{statement}
 %--------------------------------------------------------------------------
 \begin{solution}
-\begin{tabbing}
-\hspace{1cm}\=\kill
-\>\hspace{1cm}\=\kill
-Soit P l'ensemble des pièces;\\
-Diviser P en trois groupes A, B et C contenant 4 pièces chacun;\\
-{\bf Comparer}[1] A et B;\\
-Si A est plus lourd que B Alors\\
-\> Diviser A en 2 groupes D et E contenant 2 pièces chacun;\\
-\> Diviser B en 2 groupes F et G contenant respectivement 1 et 3 pieces;\\
-\> Diviser C en 2 groupes H et I contenant respectivement 1 et 3 pieces;\\
-\> {\bf Comparer}[2] D+H et E+F;\\
-\> Si D+H est plus lourd que E+F Alors\\
-\>\> Diviser D en 2 groupes J et K contenant 1 pièce chacun;\\
-\>\> {\bf Comparer}[3] J et K;\\
-\>\> Si J est plus lourd que K Alors \underline{la pièce J est plus lourde que les autres};\\
-\>\> Si J est moins lourd que K Alors \underline{la pièce K est plus lourde que les autres};\\
-\>\> Si J et K sont équilibrés Alors \underline{la pièce F est moins lourde que les autres};\\
-\> Si D+H est moins lourd que E+F Alors\\
-\>\> Diviser E en 2 groupes J et K contenant 1 pièce chacun;\\
-\>\> {\bf Comparer}[3] J et K;\\
-\>\> Si J est plus lourd que K Alors \underline{la pièce J est plus lourde que les autres};\\
-\>\> Si J est moins lourd que K Alors \underline{la pièce K est plus lourde que les autres};\\
-\>\> Si J et K sont équilibrés Alors {\em il y a une contradiction};\\
-\> Si D+H et E+F sont équilibrés Alors\\
-\>\> Diviser G en 3 groupes J, K et L contenant 1 pièce chacun;\\
-\>\> {\bf Comparer}[3] J et K;\\
-\>\> Si J est plus lourd que K Alors \underline{la pièce K est moins lourde que les autres};\\
-\>\> Si J est moins lourd que K Alors \underline{la pièce J est moins lourde que les autres};\\
-\>\> Si J et K sont équilibrés Alors \underline{la pièce L est moins lourde que les autres};\\
-Si A est moins lourd que B Alors\\
-\> {\em même raisonement} que dans le cas précédent, en inversant les rôles de A et B;\\
-Si A et B sont équilibrés Alors\\
-\> Diviser C en 3 groupes D, E et F contenant respectivement 1, 1 et 2 pieces;\\
-\> {\bf Comparer}[2] D et E;\\
-\> Si D est plus lourd que E Alors\\
-\>\> Diviser A en 2 groupes G et H contenant respectivement 1 et 3 pieces;\\
-\>\> {\bf Comparer}[3] D et G;\\
-\>\> Si D est plus lourd que G Alors \underline{la pièce D est plus lourde que les autres};\\
-\>\> Si D est moins lourd que G Alors {\em il y a une contradiction};\\
-\>\> Si D et G sont équilibrés Alors \underline{la pièce E est moins lourde que les autres};\\
-\> Si D est moins lourd que E Alors\\
-\>\> {\em même raisonement} que dans le cas précédent, en inversant les rôles de D et E;\\
-\> Si D et E sont équilibrés Alors\\
-\>\> Diviser F en 2 groupes G et H contenant 1 pièce chacun;\\
-\>\> {\bf Comparer}[3] G et D;\\
-\>\> Si G est plus lourd que D Alors \underline{la pièce G est plus lourde que les autres};\\
-\>\> Si G est moins lourd que D Alors \underline{la pièce G est plus lourde que les autres};\\
-\>\> Si G et D sont équilibrés Alors \underline{la pièce H est d'un poids différent des autres};
-\end{tabbing}
-\end{solution}
+Les pièces sont indexées {\bf 1 2 3 4 5 6 7 8 9 A B C}.
+\begin{itemize}
+\item 
+On note $U|V$ le résultat de la pesée entre les ensembles de pièces $U$ et $V$, qui peut être $+1$ si $U$ est plus lourd que $V$, ou $-1$ si $U$ est plus léger, ou $0$ s'ils ont le même poids.
+\item 
+Une configuration est une paire $x^\omega$ où $x$ est l'index de l'unique pièce distinguée, et $\omega$ indique si elle est plus lourde ($\omega=+$) ou plus légère ($\omega=-$) que les autres.
+\item 
+Un test est un arbre de décision dont chaque noeud de décision est étiqueté par une pesée et les arcs sortants de ce noeud sont étiquetés par les résutats possibles de cette pesée. Chaque configuration peut être passée dans un test et retourne la liste des noeuds qu'elle traverse (son ``chemin de décision'').
+\item 
+Une solution est un test de profondeur au plus $3$, tel qu'il n'existe pas deux configurations ayant le même chemin de décision.
+\end{itemize}
+Il y a seulement $24$ configurations en tout, et un test de profondeur $3$ a $3^3=27\geq24$ chemins complets (puisque le facteur de branchement est $3$), donc l'existence d'une solution n'est pas exclue. Une solution optimale (un test qui minimise le nombre de paires de configurations partageant le même chemin de decision) est construit incrementalement en assignant une pesée à chaque noeud de l'arbre selon le principe du gain d'information maximum: étant donné l'ensemble des configurations qui atteignent un noeud donné sur leur chemin de decision, la pesée à ce noeud est choisie de façon à les répartir de manière aussi uniforme que possible sur les trois arcs sortant. L'espace de recherche est considérablement réduit par des considerations de symétrie. Résultat obtenu par le programme python en Annexe~\ref{anx:eddpdm}:
+\begin{center}
+\begin{tikzpicture}[probe/.style={rectangle,rounded corners,draw},sol/.style={blue},outcome/.style={pos=.7,fill=white}]
 
+\node[probe] (N) at (0,0) {$24$ {\tt >>} {\bf 1234|5678}?};
+\node[probe] (N0) at (3.5,0) {$8$ {\tt >>} {\bf 129|345}?};
+\node[probe] (N00) at (7,0) {$3$ {\tt >>} {\bf 1|2}?};
+\node[sol] (N000) at (10.5,0) {$\textbf{1}^{+}$};
+\draw[->] (N00.east) to node[outcome] {\tiny $1$} (N000.west);\node[sol] (N001) at (10.5,-0.35) {$\textbf{2}^{+}$};
+\draw[->] (N00.south) to node[outcome] {\tiny $-1$} (N001.west);\node[sol] (N002) at (10.5,-0.7) {$\textbf{5}^{-}$};
+\draw[->] (N00.south) to node[outcome] {\tiny $0$} (N002.west);\draw[->] (N0.east) to node[outcome] {\tiny $1$} (N00.west);\node[probe] (N01) at (7,-1.05) {$2$ {\tt >>} {\bf 3|4}?};
+\node[sol] (N010) at (10.5,-1.05) {$\textbf{3}^{+}$};
+\draw[->] (N01.east) to node[outcome] {\tiny $1$} (N010.west);\node[sol] (N011) at (10.5,-1.4) {$\textbf{4}^{+}$};
+\draw[->] (N01.south) to node[outcome] {\tiny $-1$} (N011.west);\node[sol] (N012) at (10.5,-1.75) {$*$};
+\draw[->] (N01.south) to node[outcome] {\tiny $0$} (N012.west);\draw[->] (N0.south) to node[outcome] {\tiny $-1$} (N01.west);\node[probe] (N02) at (7,-2.1) {$3$ {\tt >>} {\bf 6|7}?};
+\node[sol] (N020) at (10.5,-2.1) {$\textbf{7}^{-}$};
+\draw[->] (N02.east) to node[outcome] {\tiny $1$} (N020.west);\node[sol] (N021) at (10.5,-2.45) {$\textbf{6}^{-}$};
+\draw[->] (N02.south) to node[outcome] {\tiny $-1$} (N021.west);\node[sol] (N022) at (10.5,-2.8) {$\textbf{8}^{-}$};
+\draw[->] (N02.south) to node[outcome] {\tiny $0$} (N022.west);\draw[->] (N0.south) to node[outcome] {\tiny $0$} (N02.west);\draw[->] (N.east) to node[outcome] {\tiny $1$} (N0.west);\node[probe] (N1) at (3.5,-3.15) {$8$ {\tt >>} {\bf 569|178}?};
+\node[probe] (N10) at (7,-3.15) {$3$ {\tt >>} {\bf 5|6}?};
+\node[sol] (N100) at (10.5,-3.15) {$\textbf{5}^{+}$};
+\draw[->] (N10.east) to node[outcome] {\tiny $1$} (N100.west);\node[sol] (N101) at (10.5,-3.5) {$\textbf{6}^{+}$};
+\draw[->] (N10.south) to node[outcome] {\tiny $-1$} (N101.west);\node[sol] (N102) at (10.5,-3.85) {$\textbf{1}^{-}$};
+\draw[->] (N10.south) to node[outcome] {\tiny $0$} (N102.west);\draw[->] (N1.east) to node[outcome] {\tiny $1$} (N10.west);\node[probe] (N11) at (7,-4.2) {$2$ {\tt >>} {\bf 7|8}?};
+\node[sol] (N110) at (10.5,-4.2) {$\textbf{7}^{+}$};
+\draw[->] (N11.east) to node[outcome] {\tiny $1$} (N110.west);\node[sol] (N111) at (10.5,-4.55) {$\textbf{8}^{+}$};
+\draw[->] (N11.south) to node[outcome] {\tiny $-1$} (N111.west);\node[sol] (N112) at (10.5,-4.9) {$*$};
+\draw[->] (N11.south) to node[outcome] {\tiny $0$} (N112.west);\draw[->] (N1.south) to node[outcome] {\tiny $-1$} (N11.west);\node[probe] (N12) at (7,-5.25) {$3$ {\tt >>} {\bf 2|3}?};
+\node[sol] (N120) at (10.5,-5.25) {$\textbf{3}^{-}$};
+\draw[->] (N12.east) to node[outcome] {\tiny $1$} (N120.west);\node[sol] (N121) at (10.5,-5.6) {$\textbf{2}^{-}$};
+\draw[->] (N12.south) to node[outcome] {\tiny $-1$} (N121.west);\node[sol] (N122) at (10.5,-5.95) {$\textbf{4}^{-}$};
+\draw[->] (N12.south) to node[outcome] {\tiny $0$} (N122.west);\draw[->] (N1.south) to node[outcome] {\tiny $0$} (N12.west);\draw[->] (N.south) to node[outcome] {\tiny $-1$} (N1.west);\node[probe] (N2) at (3.5,-6.3) {$8$ {\tt >>} {\bf 9A|B1}?};
+\node[probe] (N20) at (7,-6.3) {$3$ {\tt >>} {\bf 9|A}?};
+\node[sol] (N200) at (10.5,-6.3) {$\textbf{9}^{+}$};
+\draw[->] (N20.east) to node[outcome] {\tiny $1$} (N200.west);\node[sol] (N201) at (10.5,-6.65) {$\textbf{A}^{+}$};
+\draw[->] (N20.south) to node[outcome] {\tiny $-1$} (N201.west);\node[sol] (N202) at (10.5,-7) {$\textbf{B}^{-}$};
+\draw[->] (N20.south) to node[outcome] {\tiny $0$} (N202.west);\draw[->] (N2.east) to node[outcome] {\tiny $1$} (N20.west);\node[probe] (N21) at (7,-7.35) {$3$ {\tt >>} {\bf 9|A}?};
+\node[sol] (N210) at (10.5,-7.35) {$\textbf{A}^{-}$};
+\draw[->] (N21.east) to node[outcome] {\tiny $1$} (N210.west);\node[sol] (N211) at (10.5,-7.7) {$\textbf{9}^{-}$};
+\draw[->] (N21.south) to node[outcome] {\tiny $-1$} (N211.west);\node[sol] (N212) at (10.5,-8.05) {$\textbf{B}^{+}$};
+\draw[->] (N21.south) to node[outcome] {\tiny $0$} (N212.west);\draw[->] (N2.south) to node[outcome] {\tiny $-1$} (N21.west);\node[probe] (N22) at (7,-8.4) {$2$ {\tt >>} {\bf C|1}?};
+\node[sol] (N220) at (10.5,-8.4) {$\textbf{C}^{+}$};
+\draw[->] (N22.east) to node[outcome] {\tiny $1$} (N220.west);\node[sol] (N221) at (10.5,-8.75) {$\textbf{C}^{-}$};
+\draw[->] (N22.south) to node[outcome] {\tiny $-1$} (N221.west);\node[sol] (N222) at (10.5,-9.1) {$*$};
+\draw[->] (N22.south) to node[outcome] {\tiny $0$} (N222.west);\draw[->] (N2.south) to node[outcome] {\tiny $0$} (N22.west);\draw[->] (N.south) to node[outcome] {\tiny $0$} (N2.west);
+
+\end{tikzpicture}
+\end{center}
+Dans le code, la classe {\tt Test} représente les tests. La classe {\tt Sift} représente de manière compacte l'ensemble des chemins de décision d'un ensemble de configurations dans un test. C'est typiquement ce qui est retourné par la méthode {\tt Test.sift} qui calcule l'ensemble des chemins de décision de toutes les configurations.
+\end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème de géométrie plane}
+\section{Géométrie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
 Un trésor a été caché et j'ai l'indication suivante:
@@ -365,17 +350,17 @@ J'ai bien repéré le pin et le platane, mais le gibet a disparu. Comment puis-j
 \end{tikzpicture}
 \end{center}
 Soit $O$ le gibet, $A$ le platane (et $X$ le pieu correspondant), $B$ le pin (et $Y$ le pieu correspondant). Soit $T$ le trésor (milieu de $X,Y$) et $I$ le milieu de $A,B$. Soit $\phi$ la rotation vectorielle d'angle $90\degres$ (sens trigonométrique, i.e. inverse des aiguilles d'une montre). Vectoriellement les hypothèses se traduisent par:
-\begin{eqnarray*}
-\overrightarrow{AX} & = & -\phi(\overrightarrow{OA}) \\
-\overrightarrow{BY} & = & \phi(\overrightarrow{OB}) \\
-\overrightarrow{OI} & = & \frac{1}{2} (\overrightarrow{OA}+\overrightarrow{OB}) \\
-\overrightarrow{OT} & = & \frac{1}{2} (\overrightarrow{OX}+\overrightarrow{OY})
-\end{eqnarray*}
+\begin{align*}
+\overrightarrow{AX} & \eqnsymb{=} -\phi(\overrightarrow{OA}) \\
+\overrightarrow{BY} & \eqnsymb{=} \phi(\overrightarrow{OB}) \\
+\overrightarrow{OI} & \eqnsymb{=} \frac{1}{2} (\overrightarrow{OA}+\overrightarrow{OB}) \\
+\overrightarrow{OT} & \eqnsymb{=} \frac{1}{2} (\overrightarrow{OX}+\overrightarrow{OY})
+\end{align*}
 Par la relation de Chasles, on obtient
-\begin{eqnarray*}
-\overrightarrow{OX} & = & \overrightarrow{OA}+\overrightarrow{AX} = \overrightarrow{OA} - \phi(\overrightarrow{OA}) \\
-\overrightarrow{OY} & = & \overrightarrow{OB}+\overrightarrow{BY} = \overrightarrow{OB} + \phi(\overrightarrow{OB})
-\end{eqnarray*}
+\begin{align*}
+\overrightarrow{OX} & \eqnsymb{=} \overrightarrow{OA}+\overrightarrow{AX} = \overrightarrow{OA} - \phi(\overrightarrow{OA}) \\
+\overrightarrow{OY} & \eqnsymb{=} \overrightarrow{OB}+\overrightarrow{BY} = \overrightarrow{OB} + \phi(\overrightarrow{OB})
+\end{align*}
 En additionnant, et divisant par 2, on obtient
 \[
 \overrightarrow{OT} = \frac{1}{2} (\overrightarrow{OX}+\overrightarrow{OY}) =
@@ -384,14 +369,14 @@ En additionnant, et divisant par 2, on obtient
 \overrightarrow{OI}+\phi(\overrightarrow{AI})
 \]
 Soit, finalement
-\begin{eqnarray*}
-\overrightarrow{IT} & = & \overrightarrow{OT}-\overrightarrow{OI} =\phi(\overrightarrow{AI})
-\end{eqnarray*}
+\begin{align*}
+\overrightarrow{IT} & \eqnsymb{=} \overrightarrow{OT}-\overrightarrow{OI} =\phi(\overrightarrow{AI})
+\end{align*}
 En d'autre termes, pour trouver le trésor, depuis le platane, se rendre vers le pin, tourner à gauche à mi-chemin et parcourir la même distance. La connaissance du gibet est inutile.
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème de géométrie plane}
+\section{Géométrie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
 Un trésor a été caché et j'ai l'indication suivante:
@@ -467,7 +452,7 @@ C'est la moyenne harmonique de $a,b$. Donc, les positions $p$ et $q$ du puits et
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème d'optimisation combinatoire}
+\section{Optimisation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
 Une porte d'entrée est controlée par un digicode à 10 touches (0-9). Le code comporte quatre chiffres. N'importe quelle séquence contenant les quatre chiffres du code (consécutifs et dans l'ordre) ouvre la porte. Quelle est la longueur de la plus petite séquence ouvrant la porte à coup sûr ?
@@ -482,7 +467,7 @@ Le cas du graphe considéré ici satisfait bien l'hypothèse puisque chaque noeu
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème de géométrie plane}
+\section{Géométrie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
 Soit $R$ un rectangle de cotés $a$ et $b$ donnés. Un rectangle de cotés $x$ et $y$ est dit ``inscrit'' dans $R$ si tous ses sommets sont sur $R$. Quelle relation doit vérifier $x,y,a,b$ dans ce cas ? Combien y a-t-il de rectangles inscrits dans $R$ dont un des cotés est $a$ ?
@@ -502,24 +487,28 @@ Soit $R$ un rectangle de cotés $a$ et $b$ donnés. Un rectangle de cotés $x$ e
 \end{tikzpicture}
 \end{center}
 Soit $\alpha$ l'angle du coté $x$ du rectangle inscrit avec le coté $a$ de $R$. Les contraintes du problème se traduisent par
-\begin{eqnarray*}
-x\cos\alpha+y\sin\alpha & = & a\\
-x\sin\alpha+y\cos\alpha & = & b
-\end{eqnarray*}
+\begin{align*}
+x\cos\alpha+y\sin\alpha & \eqnsymb{=} a\\
+x\sin\alpha+y\cos\alpha & \eqnsymb{=} b
+\end{align*}
 Par addition et multiplication on obtient:
-\begin{eqnarray*}
-(x+y)(\cos\alpha+\sin\alpha) & = & a+b\\
-(x^2+y^2)\cos\alpha\sin\alpha+xy & = & ab
-\end{eqnarray*}
+\begin{align*}
+(x+y)(\cos\alpha+\sin\alpha) & \eqnsymb{=} a+b\\
+(x^2+y^2)\cos\alpha\sin\alpha+xy & \eqnsymb{=} ab
+\end{align*}
 En reportant dans $(\cos\alpha+\sin\alpha)^2=1+2\cos\alpha\sin\alpha$, on obtient
-\begin{eqnarray*}
-\left(\frac{a+b}{x+y}\right)^2 & = & 1+2\frac{ab-xy}{x^2+y^2}
-\end{eqnarray*}
-C'est l'équation d'une quartique. En ajoutant la condition $x=a$, et en développant, on obtient
+\[
+\left(\frac{a+b}{x+y}\right)^2 = 1+2\frac{ab-xy}{x^2+y^2}
+\hspace{1cm}\textrm{où}\hspace{1cm}
+x,y\geq0 \;\;\; x+y \geq \frac{a+b}{\sqrt{2}}
+\]
+C'est l'équation d'une quartique (limitée à une portion du plan). En ajoutant la condition $x=a$, et en développant, on obtient
 \[
 (b-y)(\underbrace{y^3+by^2-3a^2y+a^2b}_{P(y)})=0
+\hspace{1cm}\textrm{où}\hspace{1cm}
+y\geq\max(\frac{a+b}{\sqrt{2}}-a,0)
 \]
-On obtient bien sûr la solution triviale $y=b$ (où $\alpha=0$: le rectangle interieur est identique au rectangle exterieur). Les autres solutions sont obtenues comme zéros positifs de $P$, qui est un polynome du 3-eme degré. La règle des signes de Descartes indique qu'il a 0 ou 2 zeros positifs (en comptant les multiplicités). Les zeros de $P$ s'obtiennent en réduisant $P$:
+On obtient bien sûr la solution triviale $y=b$ (où $\alpha=0$: le rectangle interieur est identique au rectangle exterieur). Les autres solutions sont obtenues comme zéros ``admissibles'' de $P$ (satisfaisant la contrainte sur $y$), qui est un polynome du 3-eme degré. La règle des signes de Descartes indique qu'il a 0 ou 2 zeros positifs (en comptant les multiplicités). Les zeros de $P$ s'obtiennent en réduisant $P$:
 \[
 P(y) = b^3Q(\frac{y}{b}+\frac{1}{3})
 \hspace{1cm}\textrm{où}\hspace{1cm}
@@ -527,7 +516,7 @@ Q(z)=z^3-3(r+\frac{1}{9})z+2(r+\frac{1}{27})
 \hspace{1cm}
 r=\left(\frac{a}{b}\right)^2
 \]
-On cherche donc les zeros de $Q$ qui sont ``admissibles'', c-a-d supérieur à $\frac{1}{3}$. Le discriminant (réduit) de $Q$ s'écrit
+On cherche donc les zeros de $Q$ qui sont admissibles, c-a-d supérieur à $\frac{1}{3}+\max(\frac{\sqrt{r}+1}{\sqrt{2}}-\sqrt{r},0)$. Le discriminant (réduit) de $Q$ s'écrit
 \[
 \Delta = (r+\frac{1}{27})^2-(r+\frac{1}{9})^3=-r(r^2-\frac{2}{3}r-\frac{1}{27}) =
 \;\;-r\;\;(r-\underbrace{\frac{1}{3}(1-\frac{2}{\sqrt{3}})}_{<0})\;\;(r-\underbrace{\frac{1}{3}(1+\frac{2}{\sqrt{3}})}_{r^*})
@@ -535,23 +524,23 @@ On cherche donc les zeros de $Q$ qui sont ``admissibles'', c-a-d supérieur à $
 On a $Q(\frac{1}{3})=r$ et $Q'(\frac{1}{3})=-3r$. La valeur $r^*=\frac{1}{3}(1+\frac{2}{\sqrt{3}})\approx0.718$ est un seuil:
 \begin{itemize}
 \item
-Si $0<r<r^*$, alors $\Delta>0$ et $Q$ a un unique zéro réel, qui est non admissible puisque $Q(\frac{1}{3})>0$. Donc le problème posé n'a pas de solution non triviale.
+Si $0<r<r^*$, alors $\Delta>0$ et $Q$ a trois zéros réels dont deux admissibles et un non admissible puisque $Q(\frac{1}{3})>0$ et $Q'(\frac{1}{3})<0$. Donc le problème posé a exactement deux solutions non triviales.
 \item
 si $r=r^*$ alors $\Delta=0$ et $Q$ a deux zéros réels (dont un double admissible et un non admissible car négatif). Donc le problème posé a une unique solution non triviale. C'est le cas de la figure ci-dessus. On a
 \[
-a=b\sqrt{\frac{1}{3}(1+\frac{2}{\sqrt{3}})}\approx0.847b
+x=a=b\sqrt{\frac{1}{3}(1+\frac{2}{\sqrt{3}})}\approx0.847b
 \hspace{1cm}
 y=b\frac{1}{3}(\sqrt[3]{10+6\sqrt{3}}-1)\approx0.577b
 \hspace{1cm}
 \alpha\approx1.196\textrm{ rad}=68.53\degres
 \]
 \item
-si $r>r^*$ alors $\Delta<0$ et $Q$ a trois zéros réels dont deux admissibles et un non admissible puisque $Q(\frac{1}{3})>0$ et $Q'(\frac{1}{3})<0$. Donc le problème posé a exactement deux solutions non triviales.
+si $r>r^*$ alors $\Delta<0$ et $Q$ a un unique zéro réel, qui est non admissible puisque $Q(\frac{1}{3})>0$. Donc le problème posé n'a pas de solution non triviale.
 \end{itemize}
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème de logique}
+\section{Logique}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
 On propose à un groupe de prisoniers le marché suivant:
@@ -568,9 +557,9 @@ Pendant la nuit, les prisoniers établissent une stratégie qui permet à tous s
 %--------------------------------------------------------------------------
 \begin{solution}
 On attribue arbitrairement un nombre modulo 2 à chaque couleur (e.g. blanc=1 et noir=0). Chaque prisonier annonce la couleur correspondant à la somme, modulo 2, des nombres qu'il a déjà entendus (annoncés précédement par ceux qui sont derrière lui) et des nombres associés aux chapeaux qu'il peut voir (portés par ceux qui sont devant lui). Ainsi, si $x_i$ désigne la couleur du chapeau (entier modulo 2) du prisonier $i$, et $p_i$ sa prédiction, on a (modulo 2):
-\begin{eqnarray*}
-\forall i\hspace{1cm}p_i & = & \sum_{j<i}p_j+\sum_{j>i}x_j
-\end{eqnarray*}
+\begin{align*}
+\forall i\hspace{1cm}p_i & \eqnsymb{=} \sum_{j<i}p_j+\sum_{j>i}x_j
+\end{align*}
 Donc pour $i>1$ on a
 \[
 p_i = \sum_{j<i}p_j+\sum_{j>i}x_j
@@ -581,7 +570,7 @@ Par soustraction, on obtient $p_i-p_{i-1}=p_{i-1}-x_i$, soit $p_i=2p_{i-1}-x_i=x
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème d'optimisation}
+\section{Optimisation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
 Un camion doit traverser le désert sur une unique piste linéaire. Sa capacité totale est d'une unité de gasole. Il peut circuler sur la piste dans les deux sens, à vitesse constante, et consomme une unité de gazole par unité de distance quelque soit sa charge. Il peut aussi déposer des réserves en tout point de la piste, et les recharger plus tard (évaporation et pertes négligées). Quelle quantité minimale de gasole stockée au point de départ nécessite-t-il pour avancer de 2 unités de distance sur la piste.
@@ -617,7 +606,7 @@ Pour $d=2$, on obtient $\lfloor q\rfloor=7$ et $\frac{q-7}{15}=2-\sum_{k=0}^{6}\
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Un problème de logique}
+\section{Géométrie}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{statement}
 En quels points de la terre peut on effectuer le circuit fermé suivant, sans passer par le pôle: 1km vers le Nord, 1km vers l'Est, 1km vers le Sud.
@@ -626,5 +615,81 @@ En quels points de la terre peut on effectuer le circuit fermé suivant, sans pa
 \begin{solution}
 A 1km au Sud du cercle de l'hémisphère Nord, parallèle à l'équateur, et de 1km de circonférence. Ce cercle se trouve approximativement à $\frac{1}{2\pi}$ km au Sud du pôle Nord.
 \end{solution}
+\appendix
+\newpage
+\section{Programmes}
+\subsection{Programme python pour problème~\ref{sec:upaqe}}
+\label{anx:upaqe}
+\begin{verbatim}
+def solution(): # brute force
+  from collections import defaultdict
+
+  E = set((x,y) for x in range(2,100) for y in range(x,100))
+
+  p = defaultdict(int); s = defaultdict(set)
+  for u,v in E: p[u*v] += 1; s[u+v].add((u,v))
+  E1 = set.union(*(l for l in s.values() if all(p[u*v]>1 for (u,v) in l)))
+
+  p = defaultdict(int)
+  for u,v in E1: p[u*v] += 1
+  E2 = set((x,y) for x,y in E1 if p[x*y] == 1)
+
+  s = defaultdict(int)
+  for u,v in E2: s[u+v] += 1
+  E3 = set((x,y) for x,y in E2 if s[x+y] == 1)
+
+  return E,E1,E2,E3
+
+E,E1,E2,E3 = solution()
+print(f'|E|={len(E)}   |E1|={len(E1)}   |E2|={len(E2)}   E3={E3}')
+\end{verbatim}
+\newpage
+\subsection{Programme python pour problème~\ref{sec:eddpdm}}
+\label{anx:eddpdm}
+\begin{verbatim}
+from collections import defaultdict
+class Test:
+  coins = '123456789ABC'
+  dcoins = dict((c,n) for n,c in enumerate(coins))
+  def gensols(coins=coins):
+    l = len(coins)*[0]
+    for n,c in enumerate(coins):
+      l1 = l.copy()
+      l1[n] = 1  ; yield c+'+',tuple(l1)
+      l1[n] = -1 ; yield c+'-',tuple(l1)
+  allsols = list(gensols())
+  def __init__(self,label,branches={}):
+    self.label = label
+    self.compare = tuple(tuple(self.dcoins[c] for c in tx) for tx in label.split('|'))
+    assert len(self.compare)==2
+    self.branches = branches
+  def sift(self,L=None):
+    scale1,scale2 = self.compare
+    D = defaultdict(list)
+    if L is None: L = self.allsols
+    for u,x in L:
+      r = 0
+      for i in scale1: r += x[i]
+      for i in scale2: r -= x[i]
+      D[r].append((u,x))
+    branches = {}
+    for r,Lr in D.items():
+      x = self.branches.get(r)
+      branches[r] = Lr if x is None else x.sift(Lr)
+    return Sift(self.label,L,branches)
+
+class Sift:
+  # ... methods to pretty print the result of method sift above
+
+test = Test(
+  '1234|5678',
+  {
+    1:Test('129|345',{1:Test('1|2'),-1:Test('3|4'),0:Test('6|7')}),
+    -1:Test('569|178',{1:Test('5|6'),-1:Test('7|8'),0:Test('2|3')}),
+    0:Test('9|A',{1:Test('9|1'),-1:Test('A|1'),0:Test('B|1')})
+  }
+)
+print(test.sift())
+\end{verbatim}
 
 \end{document}
